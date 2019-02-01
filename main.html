@@ -18,7 +18,7 @@
 			padding: 20px;
 			border-top: 5px solid  #b00020;
 			/*border: 5px solid  #b00020;*/
-			border-radius: 5px;
+			/*border-radius: 5px;*/
 		}
 
 
@@ -86,55 +86,141 @@
 			border-bottom: 5px solid #b00020;
 		}
 	</style>
+
+	<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyBbtwZy_kTa-Y4zoJj9IFwebgcq_jhBCdw",
+	    authDomain: "nasu-f9a8f.firebaseapp.com",
+	    databaseURL: "https://nasu-f9a8f.firebaseio.com",
+	    projectId: "nasu-f9a8f",
+	    storageBucket: "nasu-f9a8f.appspot.com",
+	    messagingSenderId: "461984999827"
+	  };
+	  firebase.initializeApp(config);
+	</script>
 </head>
 <body>
 	<!-- style="width: 100%; height: 450px; overflow: hidden;" -->
 	<div style="box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2); opacity: 0.98;" >
 		<img src="naus_header.png" width="100%">
-		<ul>
-		  <li class="selected"><a href="#home">About</a></li>
-		  <li><a href="#news">Concil Members</a></li>
-		  <li><a href="#news">Committees</a></li>
-		  <li><a href="#news">Meetings</a></li>
-		  <li><a href="#news">Documents</a></li>
-		  <li class="dropdown">
+		<ul id="topbarlist">
+		  <li class="selected"><a href="#about">About Us</a></li>
+		  <li><a href="#news">News and Notice</a></li>
+		  <li><a href="#regulations">Constitutions and Regulations</a></li>
+		  <li><a href="#meetings">Meetings</a></li>
+		  <li><a href="#regsoc">Society Members Annual Registration</a></li>
+		  <li><a href="#archive">Union Archive</a></li>
+		  <li><a href="#contactus">Contact Us</a></li>
+		  <!-- <li class="dropdown">
 		    <a href="javascript:void(0)" class="dropbtn">Counsil Archives</a>
 		    <div class="dropdown-content">
 		      <a href="#">Link 1</a>
 		      <a href="#">Link 2</a>
 		      <a href="#">Link 3</a>
 		    </div>
-		  </li>
+		  </li> -->
 		</ul>
 	</div>
 	<br>
-	<div id="page_0">
+	<div id="page_about">
 		<div class="mybox">
-			<p style="margin-left: 50px; margin-right: 50px;">New Asia College Students’ Union Council (NASU Council or the Council) is the highest standing authority within NASU. The Council represents all members of the Union and acts as the bridge of communication within the Union and between the Union and the University authorities. The functions of the Council can be summarised as follows:</p>
+			<p style="margin-left: 50px; margin-right: 50px;">New Asia College Students' Union (NASU) established in 1963, is the highest autonomous organisation of more than 3,300 students of the New Asia College, The Chinese University of Hong Kong. This year, the Union is in its 56th session. The General Polling and the General Meeting are of the highest authority of the Union.</p>
+			<p style="margin-left: 50px; margin-right: 50px;">The Union Council is the highest standing authority within the Union, representing all members of the Union, which afford a recognised means of communication between students and college/university authorities. Council members and ALL Full Members of the Union are able to discuss College/University and social issues in the meetings of the Council and its Committees. The functions of the Council can be summarised as follows:</p>
 
 			<p>
 				<table style="margin-left: 20px;margin-left: 100px; margin-right: 100px;">
-					<tr><td>&middot;</td><td>Supervise the Union Executives and Union Sub-organisations</td></tr>
-					<tr><td>&middot;</td><td>Formulate policies in the Union and monitor its finances</td></tr>
-					<tr><td>&middot;</td><td>Receive and handle complaints and violations of regulations</td></tr>
+					<tr><td>&middot;</td><td>Supervise the Executive Committee, Hall Associations, Society Members and all sub-organisations</td></tr>
+					<tr><td>&middot;</td><td>Formulate policies and Legislate in the Union and monitor its finances</td></tr>
+					<tr><td>&middot;</td><td>Appoint student representatives</td></tr>
 					<tr><td>&middot;</td><td>Review Constitution, By-laws and regulations of the Union</td></tr>
-					<tr><td>&middot;</td><td>Appoint members of Council Committees and student representatives in University Committees</td></tr>
+					<tr><td>&middot;</td><td>Review Constitution and all other regulations of the Union</td></tr>
 					<tr><td>&middot;</td><td>Council members and Full Members of the Union are able to discuss University and social issues in Council Meetings and Committee Meetings.</td></tr>
 
 				</table><br>
-			<br>
-			<br>
-			<br>
-			<br>
+
+			<p style="margin-left: 50px; margin-right: 50px;">The Judicial Committee is the independent judiciary of the Union. It is entirely independent from the Union Council and Union Executives. It hears all disputes within the Union and has constitutional duty to defend the Union Constitution and the rights of the Union Members.
+</p>
+
+			<p style="margin-left: 50px; margin-right: 50px;">An Executive Committee, elected in the way of Annual Election (General Polling), acts as the execution body for NASU.</p>
+
+
+			<br><br><br><br>
 			</p>
 		</div>
 
-		<br>
-			<br>
-			<br>
-			<br>
-			<br>
-	</dir>
-	
+		<br><br><br><br><br>
+	</div>
+
+	<div hidden id="page_news">
+		<div class="mybox">
+			
+		</div>
+		<br><br><br><br><br>
+	</div>
+	<div hidden id="page_regulations">
+		<div class="mybox">
+			<iframe width="100%" height="600px;" src="https://docs.google.com/document/d/e/2PACX-1vRb9W8PyPOJY16Ghv8V0hF7vCfsC_LC6KZ9s5t5z52OoYjfkyZL0HRUdeQ_zaB38mkAxOBv4JXNYWdt/pub?embedded=true"></iframe>
+		</div>
+		<br><br><br><br><br>
+	</div>
+	<div hidden id="page_meetings">
+		<div class="mybox">
+			
+		</div>
+		<br><br><br><br><br>
+	</div>
+	<div hidden id="page_regsoc">
+		<div class="mybox">
+			
+		</div>
+		<br><br><br><br><br>
+	</div>
+	<div hidden id="page_archive">
+		<div class="mybox">
+			
+		</div>
+		<br><br><br><br><br>
+	</div>
+	<div hidden id="page_contactus">
+		<div class="mybox">
+			<div style="width: 100%"><iframe width="100%" height="600" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;coord=22.420971477672968,114.20918405056001&amp;q=The%20Chinese%20University%20of%20Hong%20Kong%20Staff%20Student%20Centre%20-%20Leung%20Hung%20Kee%20Building+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=18&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/map-my-route/">Create route map</a></iframe></div><br />
+		</div>
+		<br><br><br><br><br>
+	</div>
+
+
+
+	<script type="text/javascript">
+		var mytopbarlist = document.getElementById("topbarlist").getElementsByTagName("a");
+		function startpage(){
+			for (var j=0; j<mytopbarlist.length; j++){
+				mytopbarlist[j].onclick = function(){
+					// alert(this.href.split('#')[1]);
+					for (var k=0; k<mytopbarlist.length; k++){
+						document.getElementById('page_'+mytopbarlist[k].href.split('#')[1]).hidden = true;
+						mytopbarlist[k].parentNode.classList.remove('selected');
+					}
+					document.getElementById('page_'+this.href.split('#')[1]).hidden = false;
+					this.parentNode.classList.add('selected');
+				};
+			}
+			// console.log(location.href);
+			// mytopbarlist[0].click();
+			if (location.href.split("#")[1]){
+				for (var k=0; k<mytopbarlist.length; k++){
+					if (mytopbarlist[k].href.split('#')[1]==location.href.split("#")[1]){
+						mytopbarlist[k].click();
+					}
+				}
+			} else {
+				mytopbarlist[0].click();
+			}
+		}
+
+		startpage();
+		
+	</script>
 </body>
 </html>

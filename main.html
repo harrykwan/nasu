@@ -21,6 +21,13 @@
 			/*border-radius: 5px;*/
 		}
 
+		.mybox2{
+			/*background-color: #f9f9f9;*/
+			background-color: #b00020;
+			box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+			padding: 20px;
+			/*border-top: 5px solid  #b00020;*/
+		}
 
 		ul {
 		  list-style-type: none;
@@ -85,6 +92,28 @@
 		.selected{
 			border-bottom: 5px solid #b00020;
 		}
+
+		#regulationlist>a{
+			display: block;
+			/*width: 100%;*/
+			
+			margin: 5px;
+			padding-left: 10%;
+			color: black;
+		}
+
+		#regulationlist>a:hover{
+			border-left: 3px solid red;
+		}
+
+		#regulationlist>a:visited{
+			color: black;
+		}
+
+		#regulationlist{
+			margin-bottom: 20px;
+		}
+
 	</style>
 
 	<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
@@ -104,7 +133,9 @@
 <body>
 	<!-- style="width: 100%; height: 450px; overflow: hidden;" -->
 	<div style="box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2); opacity: 0.98;" >
-		<img src="naus_header.png" width="100%">
+
+
+		<img src="naus_header.png" width="100%"><img style="position: absolute; width: 10%; left: 5%; top: 5%;" src="logobw.png"  />
 		<ul id="topbarlist">
 		  <li class="selected"><a href="#about">About Us</a></li>
 		  <li><a href="#news">News and Notice</a></li>
@@ -126,6 +157,7 @@
 	<br>
 	<div id="page_about">
 		<div class="mybox">
+			<div style="text-align: center; margin: 30px;"><img src="narc1.png" ></div>
 			<p style="margin-left: 50px; margin-right: 50px;">New Asia College Students' Union (NASU) established in 1963, is the highest autonomous organisation of more than 3,300 students of the New Asia College, The Chinese University of Hong Kong. This year, the Union is in its 56th session. The General Polling and the General Meeting are of the highest authority of the Union.</p>
 			<p style="margin-left: 50px; margin-right: 50px;">The Union Council is the highest standing authority within the Union, representing all members of the Union, which afford a recognised means of communication between students and college/university authorities. Council members and ALL Full Members of the Union are able to discuss College/University and social issues in the meetings of the Council and its Committees. The functions of the Council can be summarised as follows:</p>
 
@@ -140,14 +172,22 @@
 
 				</table><br>
 
-			<p style="margin-left: 50px; margin-right: 50px;">The Judicial Committee is the independent judiciary of the Union. It is entirely independent from the Union Council and Union Executives. It hears all disputes within the Union and has constitutional duty to defend the Union Constitution and the rights of the Union Members.
-</p>
+			<p style="margin-left: 50px; margin-right: 50px;">The Judicial Committee is the independent judiciary of the Union. It is entirely independent from the Union Council and Union Executives. It hears all disputes within the Union and has constitutional duty to defend the Union Constitution and the rights of the Union Members.</p>
 
 			<p style="margin-left: 50px; margin-right: 50px;">An Executive Committee, elected in the way of Annual Election (General Polling), acts as the execution body for NASU.</p>
 
 
+
 			<br><br><br><br>
 			</p>
+		</div>
+		<!-- <br><br> -->
+		<div class="mybox2" style="">
+			<!-- <div id="mytree" class="tree">
+				
+			</div> -->
+			<!-- <div style="background: white;overflow: hidden; height: 600px;"><iframe src="tree.html" style="width: 100%; height: 700px; border: none; overflow: hidden;"></iframe></div> -->
+			
 		</div>
 
 		<br><br><br><br><br>
@@ -161,13 +201,45 @@
 	</div>
 	<div hidden id="page_regulations">
 		<div class="mybox">
-			<iframe width="100%" height="600px;" src="https://docs.google.com/document/d/e/2PACX-1vRb9W8PyPOJY16Ghv8V0hF7vCfsC_LC6KZ9s5t5z52OoYjfkyZL0HRUdeQ_zaB38mkAxOBv4JXNYWdt/pub?embedded=true"></iframe>
+			<!-- <iframe width="100%" height="600px;" src="https://docs.google.com/document/d/e/2PACX-1vRb9W8PyPOJY16Ghv8V0hF7vCfsC_LC6KZ9s5t5z52OoYjfkyZL0HRUdeQ_zaB38mkAxOBv4JXNYWdt/pub?embedded=true"></iframe> -->
+			<div style="margin: 5px; margin-left: 10%; border-bottom: 2px solid grey; width: 60%; font-size: 25px; font-weight: bold; margin-bottom: 20px; padding-bottom: 10px;">Constitutions and Regulations List</div>
+			<div id="regulationlist">
+				<a href="https://drive.google.com/open?id=0B134yAShyaETamdpY0pTUWU3blE" target="_blank">新亞書院學生會會章</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETaG9XbnBhZUhmc2c" target="_blank">Cap 2 會章詮釋附則</a>
+				<a href="https://drive.google.com/open?id=1bcEJTFn1M1cP1zwKwz8aVphnkEYOP6Hx" target="_blank">Cap 3 會議規則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETS0taSVFkbFFhS2M" target="_blank">Cap 4 任前會議規則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETaV9rZDhBZ2lLRUk" target="_blank">Cap 5 章則委員會附則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETajVTbFNwWEJCcGc" target="_blank">Cap 6 觀察委員會附則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETUzFJWjk3dVVSN0k" target="_blank">Cap 7 財務委員會附則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETMXdDcW1yc21NUWM" target="_blank">Cap 8 選舉委員會附則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETcF83WHV3SnFobGc" target="_blank">Cap 9 團體會員委員會附則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETaXp1am41TkpPWDA" target="_blank">Cap 10（已失效）中大代表會新亞代表附則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETNWE3YTFaaDFVWDg" target="_blank">Cap 11 香港中文大學教務會新亞書院學生委員章程</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETdU51VnhjZ19XWUk" target="_blank">Cap 12 團體會員註冊章則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETZGUyNGhya2I4QjA" target="_blank">Cap 13 大型活動籌委會附則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETbk1TVmYtMUlPbUE" target="_blank">Cap 14 宣傳守則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETU0V2VTZrYXJySlE" target="_blank">Cap 15 總務守則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETRG80b1plRDlxMnM" target="_blank">Cap 16 臨時檔案管理守則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETamRTNW5VbUpxdHM" target="_blank">Cap 17 新亞書院院務委員會屬下委員會附則</a>
+				<a href="https://drive.google.com/open?id=1keUJd-THG41Z6ltVO4gYHfnabQeBk8id" target="_blank">Cap 18 走讀生舍堂附則</a>
+				<a href="https://drive.google.com/open?id=1_-PIStNHxTtDZKQpoPZoXtitzNOUuvWc" target="_blank">Cap 19 香港中文大學學生會代表會代表團條例</a>
+
+			</div>
 		</div>
 		<br><br><br><br><br>
 	</div>
 	<div hidden id="page_meetings">
 		<div class="mybox">
-			
+			<div id="mycalen">
+				<table id="mycalentable" style='margin-left: 14%; width: 70%; text-align: center; border-collapse: collapse; border: 3px solid #b00020; padding: 4px;'>
+					<tr style="border-bottom: 3px solid #b00020; background-color: #b00020; color: white;"><td>Sun</td><td>Mon</td><td>Tue</td><td>Wed</td><td>Thu</td><td>Fri</td><td>Sat</td></tr>
+					<tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+					<tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+					<tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+					<tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+					<tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+				</table>
+			</div>
 		</div>
 		<br><br><br><br><br>
 	</div>
@@ -186,6 +258,12 @@
 	<div hidden id="page_contactus">
 		<div class="mybox">
 			<div style="width: 100%"><iframe width="100%" height="600" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;coord=22.420971477672968,114.20918405056001&amp;q=The%20Chinese%20University%20of%20Hong%20Kong%20Staff%20Student%20Centre%20-%20Leung%20Hung%20Kee%20Building+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=18&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/map-my-route/">Create route map</a></iframe></div><br />
+			<table style="padding-left: 10px;"><tr><td style="padding-right: 20px;">Address: </td><td> G04, 2/F, Leung Hung Kee Building, New Asia Cir, Ma Liu Shui, Sha Tin, N.T, CUHK, N.T, Hong Kong</td></tr>
+			<tr><td>Contact: </td><td> 26036016</td></tr>
+			<tr><td>Email: </td><td> <a href = "mailto: abc@narep@cuhk.edu.hk">narep@cuhk.edu.hk</a></td></tr>
+			</table>
+			<br>
+
 		</div>
 		<br><br><br><br><br>
 	</div>
@@ -194,6 +272,65 @@
 
 	<script type="text/javascript">
 		var mytopbarlist = document.getElementById("topbarlist").getElementsByTagName("a");
+		var mytree = document.getElementById("mytree");
+		var mycalen = document.getElementById("mycalentable");
+		var myregulationlist = document.getElementById("regulationlist").getElementsByTagName('a');
+
+		var mytreedata = {};
+		mytreedata['Halls'] = [
+												"Chih Hsing Hall Residents' Association",
+												"Daisy Li Hall Residents' Association",
+												"Grace Tien Hall Residents' Association"];
+
+		mytreedata['Non-Residential Hall'] = [	"Xuesi Hall Residents' Association"];
+
+		mytreedata['Departmental Societies'] = [
+												'Anthropology Student Society, NASU',
+												'Chinese Society, NASU',
+												'Chemistry Society, NASU',
+												'Economics Society, NASU',
+												'English Society, NASU',
+												'Fine Arts Departmental Club, NASU',
+												'History Society, NASU',
+												'Nursing Society, NASU',
+												'Social Work Society, NASU',
+												'Statistic Society, NASU',
+												'Mathematics Society, NASU'];
+		mytreedata['Societies and Clubs'] = [
+												'AstronomySociety, NASU',
+												'Band Society, NASU',
+												'Bookcrossing Society, NASU',
+												'Chinese Music Society, NASU',
+												'Drama Club, NASU',
+												'Mainland Undergraduate Association, NASU',
+												'Martial Arts Society, NASU',
+												'Rotaract Club, NASU',
+												'Speech and Debate Society, NASU',
+												'10.Students Social Service Group, NASU'];
+
+
+
+
+		function makesocietytree(){
+			var temptreeoutput = '';
+			temptreeoutput+='<ul>';
+			for (var j in mytreedata){
+				temptreeoutput+='<li>';
+				temptreeoutput+='<a href="">'+j+'</a>';
+				temptreeoutput+='<ul>';
+				for (var k=0; k<mytreedata[j].length; k++){
+					temptreeoutput+='<li>';
+					temptreeoutput+='<a href="">'+mytreedata[j][k]+'</a>';
+					temptreeoutput+='</li>';
+				}
+				temptreeoutput+='</ul>';
+				temptreeoutput+='</li>';
+				
+			}
+			temptreeoutput+='</ul>';
+			mytree.innerHTML = temptreeoutput;
+		}
+
 		function startpage(){
 			for (var j=0; j<mytopbarlist.length; j++){
 				mytopbarlist[j].onclick = function(){
@@ -217,10 +354,36 @@
 			} else {
 				mytopbarlist[0].click();
 			}
+
+			initcalen();
+			
+			
+			
 		}
 
 		startpage();
 		
+		function initcalen(d){
+			if (!d)
+				d = new Date();
+			var startday = new Date(d.getYear(),d.getMonth(),1);
+			var endday = new Date(new Date(d.getYear(),d.getMonth()+1,1)-1);
+			var nowweeknum = startday.getDay();
+			var nowrow = 1;
+			for (var j=startday.getDate(); j<=endday.getDate(); j++){
+				mycalen.rows[nowrow].cells[nowweeknum].innerHTML = j;
+				mycalen.rows[nowrow].cells[nowweeknum].style.height = '80px';	
+				mycalen.rows[nowrow].cells[nowweeknum].style.width = '80px';
+				mycalen.rows[nowrow].cells[nowweeknum].style.border = '1px solid grey';		
+				nowweeknum++;
+				if (nowweeknum==7){
+					nowweeknum=0;
+					nowrow++;
+				}
+			}
+		}
+
+
 	</script>
 </body>
 </html>

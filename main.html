@@ -114,6 +114,85 @@
 			margin-bottom: 20px;
 		}
 
+		.monthchoose{
+			border: none;  
+			outline: none; 
+			background: none; 
+			border-radius: 0px; 
+			-webkit-appearance: none;
+			padding: 10px;
+			font-size: 45px;
+			text-align: center;
+			padding-left: 20px;
+			font-weight: bold;
+			/*width: 150px;*/
+			color: #AA0000;
+			/*text-shadow: 2px 2px grey;*/
+			text-align: center;
+  			text-align-last: center;
+		}
+
+		.monthchoose:hover{
+			/*border: 1px solid #b00020;*/
+			/*border-bottom: 1px solid black; */
+			background-color: #FFEEEE;
+
+		}
+
+
+		.yearchoose{
+			border: none; 
+			/*border-bottom: 1px solid black; */
+			outline: none; 
+			background: none;
+			padding: 10px;
+			font-size: 16px;
+			width: 50px;
+			font-weight: bold;
+			color: #AA0000;
+			text-align: center;
+		}
+
+		.yearchoose:hover{
+			/*border-bottom: 1px solid black; */
+			/*background: grey;*/
+			background-color: #FFEEEE;
+		}
+
+		.calenbutton{
+			 color: #b00020;
+			 font-size: 20px;
+			 font-weight: bold;
+			 padding: 10px;
+			 padding-top: 2px;
+			 padding-bottom: 2px;
+			 -webkit-touch-callout: none; /* iOS Safari */
+		    -webkit-user-select: none; /* Safari */
+		     -khtml-user-select: none; /* Konqueror HTML */
+		       -moz-user-select: none; /* Firefox */
+		        -ms-user-select: none; /* Internet Explorer/Edge */
+		            user-select: none; /* Non-prefixed version, currently
+		                                  supported by Chrome and Opera */
+		}
+
+		.calenbutton:hover{
+			font-size: 30px;
+			background-color: #FFEEEE;
+		}
+
+		.todaybutton{
+			/*border: none;*/
+			border: 2px solid #b00020; 
+			border-radius: 0; 
+			font-size: 16px; 
+			outline: none;
+			padding: 6px;
+		}
+
+		.todaybutton:hover{
+			background-color: #FFEEEE;
+		}
+
 	</style>
 
 	<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
@@ -230,6 +309,18 @@
 	</div>
 	<div hidden id="page_meetings">
 		<div class="mybox">
+			<div id="myyearmonth" style="padding-bottom: 10px; text-align: center;  width: 70%; margin-left: 14%; ">
+				
+				<div onclick="calennext()" style="float: right;" class="calenbutton">></div>
+				<div style="float: left;" class="calenbutton" onclick="calenback()"><</div>
+				<div style="float: center;" >
+					<select onchange="changecalen()" id="monthchoose" class="monthchoose" style=""></select>
+					<input onchange="changecalen()" id="yearchoose" class="yearchoose" type="text" name="" style="">
+
+				</div>
+				
+			</div>
+
 			<div id="mycalen">
 				<table id="mycalentable" style='margin-left: 14%; width: 70%; text-align: center; border-collapse: collapse; border: 3px solid #b00020; padding: 4px;'>
 					<tr style="border-bottom: 3px solid #b00020; background-color: #b00020; color: white;"><td>Sun</td><td>Mon</td><td>Tue</td><td>Wed</td><td>Thu</td><td>Fri</td><td>Sat</td></tr>
@@ -238,7 +329,14 @@
 					<tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
 					<tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
 					<tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+					<tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
 				</table>
+				<div style="padding-bottom: 10px; text-align: center;  width: 70%; margin-left: 14%; ">
+					<div style="float: right;"><button onclick="initcalen()" class="todaybutton">Today</button></div>
+				</div>
+				<div></div>
+				<br><br>
+
 			</div>
 		</div>
 		<br><br><br><br><br>
@@ -363,15 +461,27 @@
 
 		startpage();
 		
+		function clearcalen(){
+			for (var j=1; j<mycalen.rows.length; j++){
+				for (var k=0; k<mycalen.rows[j].cells.length; k++){
+					mycalen.rows[j].cells[k].innerHTML = '';
+					mycalen.rows[j].cells[k].style.border = 'none';
+					mycalen.rows[j].cells[k].style.height = '0px';
+					mycalen.rows[j].cells[k].style.width = '0px';
+				}
+			}
+		}
+
 		function initcalen(d){
+			clearcalen();
 			if (!d)
 				d = new Date();
 			var startday = new Date(d.getYear(),d.getMonth(),1);
-			var endday = new Date(new Date(d.getYear(),d.getMonth()+1,1)-1);
+			var endday = new Date(new Date(d.getYear(),d.getMonth()-0+1,1)-1);
 			var nowweeknum = startday.getDay();
 			var nowrow = 1;
 			for (var j=startday.getDate(); j<=endday.getDate(); j++){
-				mycalen.rows[nowrow].cells[nowweeknum].innerHTML = j;
+				mycalen.rows[nowrow].cells[nowweeknum].innerHTML = '<div>'+j+'</div>';
 				mycalen.rows[nowrow].cells[nowweeknum].style.height = '80px';	
 				mycalen.rows[nowrow].cells[nowweeknum].style.width = '80px';
 				mycalen.rows[nowrow].cells[nowweeknum].style.border = '1px solid grey';		
@@ -381,7 +491,31 @@
 					nowrow++;
 				}
 			}
+			var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+			var tempmonthchoose = '';
+			for (var j=0; j<12; j++){
+				tempmonthchoose += '<option value="'+j+'">'+months[j]+'</option>';
+			}
+			document.getElementById("monthchoose").innerHTML = tempmonthchoose;
+			document.getElementById("monthchoose")[d.getMonth()].selected = true;
+			document.getElementById("yearchoose").value = d.getFullYear();
 		}
+
+		function changecalen(){
+			var d = new Date(document.getElementById('yearchoose').value,document.getElementById('monthchoose').value,1);
+			initcalen(d);
+		}
+
+		function calenback() {
+			var d = new Date(document.getElementById('yearchoose').value,document.getElementById('monthchoose').value-1,1);
+			initcalen(d);
+		}
+
+		function calennext() {
+			var d = new Date(document.getElementById('yearchoose').value,document.getElementById('monthchoose').value-0+1,1);
+			initcalen(d);
+		}
+
 
 
 	</script>

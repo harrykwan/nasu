@@ -190,6 +190,7 @@
 			padding: 6px;
 			border-top: none;
 			background: none;
+			color: #b00020;
 		}
 
 		.todaybutton:hover{
@@ -574,8 +575,8 @@
 			clearcalen();
 			if (!d)
 				d = new Date();
-			var startday = new Date(d.getYear(),d.getMonth(),1);
-			var endday = new Date(new Date(d.getYear(),d.getMonth()-0+1,1)-1);
+			var startday = new Date(d.getFullYear(),d.getMonth(),1);
+			var endday = new Date(new Date(d.getFullYear(),d.getMonth()-0+1,1)-1);
 			var nowweeknum = startday.getDay();
 			var nowrow = 1;
 			for (var j=startday.getDate(); j<=endday.getDate(); j++){

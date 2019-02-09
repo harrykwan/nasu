@@ -183,6 +183,8 @@
 		.calenbutton:hover{
 			/*font-size: 30px;*/
 			background-color: #FFEEEE;
+			background-color: #b00020;
+			color: white;
 		}
 
 		.todaybutton{
@@ -195,10 +197,13 @@
 			border-top: none;
 			background: none;
 			color: #b00020;
+			background-color: #b00020;
+			color: white;
 		}
 
 		.todaybutton:hover{
-			background-color: #FFEEEE;
+			background-color: white;
+			color: #b00020;
 		}
 
 		.newshead{
@@ -218,6 +223,31 @@
 			width: 60%;
 			margin-left: 20%;
 			border: 3px solid #b00020;
+			border-top: none;
+			padding: 10px;
+			margin-bottom: 50px;
+		}
+
+		.meetinghead{
+			width: 60%;
+			margin-left: 15%;
+			/*border: 1px solid black;*/
+			/*background-color: #444444;*/
+			/*border: 3px solid #444444;*/
+			border-bottom: 5px solid #b00020;
+			border-color: grey;
+			/*color: white;*/
+			padding: 10px;
+			text-align: center;
+			margin-top: 20px;
+			font-weight: bold;
+			font-size: 18px;
+		}
+
+		.meetingbox{
+			width: 60%;
+			margin-left: 15%;
+			/*border: 3px solid #b00020;*/
 			border-top: none;
 			padding: 10px;
 			margin-bottom: 50px;
@@ -246,6 +276,20 @@
 
 		.boxactive, .mybox3:hover{
 			background: #FDD;
+		}
+
+		.calenselected{
+			border: 2px solid red;
+			padding: 5px;
+			padding-left: 10px;
+			padding-right: 10px;
+			display: inline-block;
+			border-radius: 100%;
+		}
+
+		.calenselected:hover{
+			/*background-color: red;*/
+			/*color: white;*/
 		}
 
 	</style>
@@ -468,7 +512,20 @@
 				<div></div>
 				<br><br>
 
+
+
 			</div>
+
+
+		</div>
+
+		<div hidden class="mybox" style="" id="showmeeting">
+			<div id="meetingtitle" class="meetinghead">
+				</div>
+				<div id="meetingbody" class="meetingbox">
+				</div>
+				
+				<br><br>
 		</div>
 		<br><br><br><br><br>
 	</div>
@@ -560,6 +617,7 @@
 			mytree.innerHTML = temptreeoutput;
 		}
 
+		var mymeetingdata={};
 		function startpage(){
 			for (var j=0; j<mytopbarlist.length; j++){
 				mytopbarlist[j].onclick = function(){
@@ -584,8 +642,8 @@
 				mytopbarlist[0].click();
 			}
 
-			initcalen();
 			
+			initcalen();
 			autosize(document.getElementsByClassName("newsbody")[0]);
 
 			db.collection("news").get().then(function(querySnapshot) {
@@ -594,6 +652,16 @@
 			        // console.log(doc.id, " => ", doc.data());
 			        var mynewsdata = doc.data();
 			        document.getElementById('page_news').getElementsByClassName('mybox')[0].innerHTML+='<div class="newshead">'+mynewsdata.title+'</div><div class="newsbox">'+textareatodiv(mynewsdata.body)+'</div>';
+			    });
+			});
+
+			db.collection("meeting").get().then(function(querySnapshot) {
+			    querySnapshot.forEach(function(doc) {
+			        // doc.data() is never undefined for query doc snapshots
+			        // console.log(doc.id, " => ", doc.data());
+			        mymeetingdata[doc.id] = doc.data();
+			        // console.log(mymeetingdata)
+			        initcalen();
 			    });
 			});
 			
@@ -621,7 +689,13 @@
 			var nowweeknum = startday.getDay();
 			var nowrow = 1;
 			for (var j=startday.getDate(); j<=endday.getDate(); j++){
-				mycalen.rows[nowrow].cells[nowweeknum].innerHTML = '<div>'+j+'</div>';
+				var tempid = j+'|'+d.getMonth()+'|'+d.getFullYear();
+				if (mymeetingdata[tempid]){
+					mycalen.rows[nowrow].cells[nowweeknum].innerHTML = '<div class="calenselected" onclick="showmeeting(this)">'+j+'</div>';
+					// mycalen.rows[nowrow].cells[nowweeknum].classList.add('meetingday');
+				}
+				else
+					mycalen.rows[nowrow].cells[nowweeknum].innerHTML = '<div>'+j+'</div>';
 				mycalen.rows[nowrow].cells[nowweeknum].style.height = '80px';	
 				mycalen.rows[nowrow].cells[nowweeknum].style.width = '80px';
 				mycalen.rows[nowrow].cells[nowweeknum].style.border = '1px solid grey';		
@@ -720,6 +794,14 @@
 			for (var j=0; j<mytreebox.length; j++){
 				mytreebox[j].classList.remove('boxactive');
 			}
+		}
+
+		function showmeeting(x) {
+			var tempid = x.innerHTML+'|'+document.getElementById('monthchoose').value+'|'+document.getElementById('yearchoose').value;
+			// console.log(mymeetingdata[tempid]);
+			document.getElementById("meetingtitle").innerHTML = mymeetingdata[tempid].title;
+			document.getElementById("meetingbody").innerHTML = mymeetingdata[tempid].body;
+			document.getElementById("showmeeting").hidden = false;
 		}
 
 

@@ -8,6 +8,7 @@
 			background-color: #DDDDDD;
 			/*font-family: 'Indie Flower', cursive;*/
 			font-family: 'Noto Sans TC', sans-serif;
+			min-width: 730px;
 		}
 
 		.mybox{
@@ -23,11 +24,14 @@
 
 		.mybox2{
 			/*background-color: #f9f9f9;*/
-			background-color: #b00020;
+			background-color: #902222;
 			box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
 			padding: 20px;
+			
 			/*border-top: 5px solid  #b00020;*/
 		}
+
+		
 
 		ul {
 		  list-style-type: none;
@@ -229,6 +233,20 @@
 			resize: none;
 		}
 
+		.mybox3{
+			font-size: 16px;
+			color: #b00020;
+			background: white;
+			padding: 10px;
+			display: inline-block;
+			font-weight: bold;
+			background-color: #EEEEEE;
+		}
+
+		.boxactive, .mybox3:hover{
+			background: #FFDDDD;
+		}
+
 	</style>
 
 	<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
@@ -263,8 +281,8 @@
 		  <li><a href="#news">News and Notice</a></li>
 		  <li><a href="#regulations">Constitutions and Regulations</a></li>
 		  <li><a href="#meetings">Meetings</a></li>
-		  <li><a href="#regsoc">Society Members Annual Registration</a></li>
-		  <li><a href="#archive">Union Archive</a></li>
+		  <li hidden><a href="#regsoc">Society Members Annual Registration</a></li>
+		  <li hidden><a href="#archive">Union Archive</a></li>
 		  <li><a href="#contactus">Contact Us</a></li>
 		  <!-- <li class="dropdown">
 		    <a href="javascript:void(0)" class="dropbtn">Counsil Archives</a>
@@ -305,13 +323,69 @@
 		</div>
 		<!-- <br><br> -->
 		<div class="mybox2" style="">
+			<br>
 			<!-- <div id="mytree" class="tree">
-				
 			</div> -->
 			<!-- <div style="background: white;overflow: hidden; height: 600px;"><iframe src="tree.html" style="width: 100%; height: 700px; border: none; overflow: hidden;"></iframe></div> -->
-			
-		</div>
+			<div style="text-align: center;"><div class="mybox3">NASU</div></div>
+			<div style="border-right: 1px solid white; height: 30px; width: 0px;margin-left: 50%;"></div>
+			<div style="text-align: center;"><div class="mybox3">General Polling</div></div>
+			<div style="border-right: 1px solid white; height: 30px; width: 0px;margin-left: 50%;"></div>
+			<div style="text-align: center;"><div class="mybox3">General Meeting</div></div>
 
+			<div style="border-right: 1px solid white; height: 30px; width: 0px;margin-left: 50%;"></div>
+			<div style="border-top: 1px solid white; height: 0px; width: calc(50% + 2px);margin-left: 25%;"></div>
+			<div style="border-right: 1px solid white; border-left: 1px solid white; height: 30px; width: 50%;margin-left: 25%;"></div>
+			<!-- <div class="mybox3">NASU</div><div class="mybox3">NASU</div> -->
+			<div style="text-align: center;">
+				<div class="mybox3" style="">Union Council</div>
+				<div style="width: calc(50% - 150px); display: inline-block;"></div>
+				<div class="mybox3" style="">Judicial Committee</div>
+			</div>
+			
+			<div style=" border-left: 1px solid white; height: 30px; width: 50%;margin-left: 25%;"></div>
+			<div style="border-top: 1px solid white; height: 0px; width: calc(80% + 19px);margin-left: 10%;"></div>
+			<div style=" border-left: 1px solid white; height: 30px; width: 0px;margin-left: 10%; display: inline-block;"></div>
+			<div style=" border-left: 1px solid white; height: 30px; width: 0px;margin-left: 20%;display: inline-block;"></div>
+			<div style=" border-left: 1px solid white; height: 30px; width: 0px;margin-left: 20%;display: inline-block;"></div>
+			<div style=" border-left: 1px solid white; height: 30px; width: 0px;margin-left: 20%;display: inline-block;"></div>
+			<div style=" border-left: 1px solid white; height: 30px; width: 0px;margin-left: 20%;display: inline-block;"></div>
+			<div style="text-align: center;">
+				<div style="width: calc(4% - 0px); display: inline-block;"></div>
+				<div class="mybox3" style="font-size: 12px;"><br>EXCO<br><br></div>
+				<div style="width: calc(20% - 100px); display: inline-block;"></div>
+				<div class="mybox3" style="font-size: 12px;"><br>Hall Associations<br><br></div>
+				<div style="width: calc(20% - 120px); display: inline-block;"></div>
+				<div class="mybox3" style="font-size: 12px;"><br>Society Member<br><br></div>
+				<div style="width: calc(20% - 130px); display: inline-block;"></div>
+				<div class="mybox3" style="font-size: 12px;"><br>Student Representative<br><br></div>
+				<div style="width: calc(20% - 140px); display: inline-block;"></div>
+				<div class="mybox3" style="font-size: 12px;">Members (NASU)<br>of the CUSU<br>Council</div>
+			</div>
+			<div style=" border-left: 1px solid white; height: 30px; width: 0px;margin-left: 10%; display: inline-block;"></div>
+			<div style=" border-left: 1px solid none; height: 30px; width: 0px;margin-left: calc(20% - 50px);display: inline-block;"></div>
+			<div style=" border-left: 1px solid white; height: 30px; width: 0px;margin-left: 20%;display: inline-block;"></div>
+			<div style=" border-left: 1px solid white; height: 30px; width: 0px;margin-left: 20%;display: inline-block;"></div>
+			<div style=" border-left: 5px dotted white; height: 30px; width: 0px;margin-left: calc(20% + 10px);display: inline-block;"></div>
+			<div style="text-align: center;">
+				<!-- <div style="width: calc(4% - 0px); display: inline-block;"></div> -->
+				<div class="mybox3" style="font-size: 12px; text-align: left;">- The Union Office<br>- Ocamp Committee<br>- Publication Committee<br>- Union Event Committees<br><br><br><br></div>
+				<div style="width: calc(40% - 250px); display: inline-block;"></div>
+				
+				
+				<div class="mybox3" style="font-size: 12px; text-align: left;">- Clubs<br>- Departmental Society<br><br><br><br><br><br></div>
+				<div style="width: calc(20% - 130px); display: inline-block;"></div>
+				<div class="mybox3" style="font-size: 12px; text-align: left;">- Assembly of Fellow<br>- Senator<br>- College/University Committees<br><br><br><br><br></div>
+				<div style="width: calc(20% - 130px); display: inline-block;"></div>
+				<div style="display: inline-block; text-align: left; width: 100px;">
+					<div class="mybox3" style="font-size: 12px; text-align: left;">CUSU</div>
+					<br><div style=" border-left: 5px dotted white; height: 30px; width: 0px;margin-left: 20%;display: inline-block;"></div><br>
+					<div class="mybox3" style="font-size: 12px; text-align: left;">Hong Kong Federation of Students</div>
+				</div>
+			</div>
+			<br>
+		</div>
+		<div class="mybox"></div>
 		<br><br><br><br><br>
 	</div>
 
@@ -384,8 +458,10 @@
 					<tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
 					<tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
 				</table>
-				<div style="padding-bottom: 10px; text-align: center;  width: 70%; margin-left: 14%; ">
-					<div style="float: right;"><button onclick="initcalen()" class="todaybutton">Today</button></div>
+				<div style="padding-bottom: 10px; text-align: center;  width: calc(70% - 1px); margin-left: 14%; ">
+					<!-- <div style="float: right;"> -->
+						<button onclick="initcalen()" style="width: 100%;" class="todaybutton">Today</button>
+					<!-- </div> -->
 				</div>
 				<div></div>
 				<br><br>
@@ -582,6 +658,67 @@
 			return x.split(' ').join('&nbsp;').split('\n').join('<br>');
 		}
 
+		var mytreebox = document.getElementsByClassName('mybox3');
+
+		for (var j=0; j<mytreebox.length; j++){
+			mytreebox[j].onmouseout = function(){
+				cleartree();
+			}
+		}
+
+		mytreebox[0].onmouseover = function(){
+			for (var j=0; j<mytreebox.length; j++){
+				mytreebox[j].classList.add('boxactive');
+			}
+		};
+		mytreebox[1].onmouseover = function(){
+			for (var j=1; j<mytreebox.length; j++){
+				mytreebox[j].classList.add('boxactive');
+			}
+		};
+		mytreebox[2].onmouseover = function(){
+			for (var j=2; j<mytreebox.length; j++){
+				mytreebox[j].classList.add('boxactive');
+			}
+		};
+		mytreebox[3].onmouseover = function(){
+			for (var j=5; j<mytreebox.length; j++){
+				mytreebox[j].classList.add('boxactive');
+			}
+		};
+
+		mytreebox[5].onmouseover = function(){
+			mytreebox[10].classList.add('boxactive');
+		};
+
+		mytreebox[7].onmouseover = function(){
+			mytreebox[11].classList.add('boxactive');
+		};
+
+		mytreebox[8].onmouseover = function(){
+			mytreebox[12].classList.add('boxactive');
+		};
+
+		mytreebox[9].onmouseover = function(){
+			mytreebox[13].classList.add('boxactive');
+			mytreebox[14].classList.add('boxactive');
+		};
+
+		mytreebox[13].onmouseover = function(){
+			mytreebox[14].classList.add('boxactive');
+		};
+
+		mytreebox[0].onmouseover = function(){
+			for (var j=0; j<mytreebox.length; j++){
+				mytreebox[j].classList.add('boxactive');
+			}
+		};
+
+		function cleartree(){
+			for (var j=0; j<mytreebox.length; j++){
+				mytreebox[j].classList.remove('boxactive');
+			}
+		}
 
 
 	</script>

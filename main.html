@@ -189,6 +189,7 @@
 			outline: none;
 			padding: 6px;
 			border-top: none;
+			background: none;
 		}
 
 		.todaybutton:hover{
@@ -217,9 +218,21 @@
 			margin-bottom: 50px;
 		}
 
+		.newsbody{
+			width: 100%;
+			height: 100%;
+			border: none;
+			background: none;
+			outline: none;
+			font-family: 'Noto Sans TC', sans-serif;
+			font-size: 16px;
+			resize: none;
+		}
+
 	</style>
 
 	<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+	<script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>
 	<script>
 	  // Initialize Firebase
 	  var config = {
@@ -231,6 +244,12 @@
 	    messagingSenderId: "461984999827"
 	  };
 	  firebase.initializeApp(config);
+	   var db = firebase.firestore();
+
+        // Disable deprecated features
+        db.settings({
+          timestampsInSnapshots: true
+        });
 	</script>
 </head>
 <body>
@@ -298,42 +317,16 @@
 
 	<div hidden id="page_news">
 		<div class="mybox">
+			<!-- <div class="newshead">【新亞代表會】任前會議選舉結果公告合集</div>
+			<div class="newsbox">
+
+			</div>
+			
 			<div class="newshead">【新亞代表會】任前會議選舉結果公告合集</div>
-			<div class="newsbox">敬啟者：
-
-新亞書院學生會代表會
-
-任前會議選舉結果公告
-
-　　第五十四屆新亞書院學生會代表會任前會議於二零一七年三月十三日召開。各代表於是次任前會議成功互選出主席、副主席、總務，惟秘書未有代表有意參選，代表會秘書職位出缺，代表會上文牘事宜暫時交由職員會代為進行，直至選出秘書一職為止。
-
-本屆（第五十四屆）代表會職員會成員為：
-
-吳浩天（新政政一，政治與行政學系系會代表）為代表會主席
-
-袁德智（新經濟二，經濟學系系會代表）為代表會副主席
-
-麥曉彤（新文管一，文化管理學系系會代表）為代表會總務
-
-</div>
-<div class="newshead">【新亞代表會】任前會議選舉結果公告合集</div>
-			<div class="newsbox">敬啟者：
-
-新亞書院學生會代表會
-
-任前會議選舉結果公告
-
-　　第五十四屆新亞書院學生會代表會任前會議於二零一七年三月十三日召開。各代表於是次任前會議成功互選出主席、副主席、總務，惟秘書未有代表有意參選，代表會秘書職位出缺，代表會上文牘事宜暫時交由職員會代為進行，直至選出秘書一職為止。
-
-本屆（第五十四屆）代表會職員會成員為：
-
-吳浩天（新政政一，政治與行政學系系會代表）為代表會主席
-
-袁德智（新經濟二，經濟學系系會代表）為代表會副主席
-
-麥曉彤（新文管一，文化管理學系系會代表）為代表會總務
-
-</div>
+			<div class="newsbox">
+				<textarea class="newsbody"></textarea>
+			</div>
+ -->
 
 		</div>
 		<br><br><br><br><br>
@@ -515,7 +508,16 @@
 
 			initcalen();
 			
-			
+			autosize(document.getElementsByClassName("newsbody")[0]);
+
+			db.collection("news").get().then(function(querySnapshot) {
+			    querySnapshot.forEach(function(doc) {
+			        // doc.data() is never undefined for query doc snapshots
+			        // console.log(doc.id, " => ", doc.data());
+			        var mynewsdata = doc.data();
+			        document.getElementById('page_news').getElementsByClassName('mybox')[0].innerHTML+='<div class="newshead">'+mynewsdata.title+'</div><div class="newsbox">'+textareatodiv(mynewsdata.body)+'</div>';
+			    });
+			});
 			
 		}
 
@@ -574,6 +576,10 @@
 		function calennext() {
 			var d = new Date(document.getElementById('yearchoose').value,document.getElementById('monthchoose').value-0+1,1);
 			initcalen(d);
+		}
+
+		function textareatodiv(x){
+			return x.split(' ').join('&nbsp;').split('\n').join('<br>');
 		}
 
 

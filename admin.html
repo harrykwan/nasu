@@ -243,7 +243,7 @@
 			background-color: #EEEEEE;
 		}
 
-		.mybox3:hover{
+		.boxactive, .mybox3:hover{
 			background: #FFDDDD;
 		}
 
@@ -658,6 +658,67 @@
 			return x.split(' ').join('&nbsp;').split('\n').join('<br>');
 		}
 
+		var mytreebox = document.getElementsByClassName('mybox3');
+
+		for (var j=0; j<mytreebox.length; j++){
+			mytreebox[j].onmouseout = function(){
+				cleartree();
+			}
+		}
+
+		mytreebox[0].onmouseover = function(){
+			for (var j=0; j<mytreebox.length; j++){
+				mytreebox[j].classList.add('boxactive');
+			}
+		};
+		mytreebox[1].onmouseover = function(){
+			for (var j=1; j<mytreebox.length; j++){
+				mytreebox[j].classList.add('boxactive');
+			}
+		};
+		mytreebox[2].onmouseover = function(){
+			for (var j=2; j<mytreebox.length; j++){
+				mytreebox[j].classList.add('boxactive');
+			}
+		};
+		mytreebox[3].onmouseover = function(){
+			for (var j=5; j<mytreebox.length; j++){
+				mytreebox[j].classList.add('boxactive');
+			}
+		};
+
+		mytreebox[5].onmouseover = function(){
+			mytreebox[10].classList.add('boxactive');
+		};
+
+		mytreebox[7].onmouseover = function(){
+			mytreebox[11].classList.add('boxactive');
+		};
+
+		mytreebox[8].onmouseover = function(){
+			mytreebox[12].classList.add('boxactive');
+		};
+
+		mytreebox[9].onmouseover = function(){
+			mytreebox[13].classList.add('boxactive');
+			mytreebox[14].classList.add('boxactive');
+		};
+
+		mytreebox[13].onmouseover = function(){
+			mytreebox[14].classList.add('boxactive');
+		};
+
+		mytreebox[0].onmouseover = function(){
+			for (var j=0; j<mytreebox.length; j++){
+				mytreebox[j].classList.add('boxactive');
+			}
+		};
+
+		function cleartree(){
+			for (var j=0; j<mytreebox.length; j++){
+				mytreebox[j].classList.remove('boxactive');
+			}
+		}
 
 
 	</script>

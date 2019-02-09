@@ -191,6 +191,8 @@
 			border-top: none;
 			background: none;
 			color: #b00020;
+			background-color: #b00020;
+			color: white;
 		}
 
 		.todaybutton:hover{
@@ -264,6 +266,15 @@
 		.newsadd:hover{
 			background-color: #b00020;
 			border-color: #b00020;
+		}
+
+		.calenselected{
+			border: 2px solid red;
+			padding: 5px;
+			padding-left: 10px;
+			padding-right: 10px;
+			display: inline-block;
+			border-radius: 100%;
 		}
 
 	</style>
@@ -435,6 +446,13 @@
 				</div>
 				<div></div>
 				<br><br>
+				<div class="newshead">
+					<textarea placeholder="title" id="meetingtitle" class="newstitle" style="color: white;"></textarea>
+				</div>
+				<div class="newsbox">
+					<textarea placeholder="body" id="meetingbody" class="newsbody"></textarea>
+				</div>
+				<br><br>
 
 			</div>
 		</div>
@@ -555,6 +573,7 @@
 			initcalen();
 			
 			autosize(document.getElementsByClassName("newsbody")[0]);
+			autosize(document.getElementsByClassName("newsbody")[1]);
 			
 		}
 
@@ -580,7 +599,7 @@
 			var nowweeknum = startday.getDay();
 			var nowrow = 1;
 			for (var j=startday.getDate(); j<=endday.getDate(); j++){
-				mycalen.rows[nowrow].cells[nowweeknum].innerHTML = '<div>'+j+'</div>';
+				mycalen.rows[nowrow].cells[nowweeknum].innerHTML = '<div onclick="addmeeting(this)">'+j+'</div>';
 				mycalen.rows[nowrow].cells[nowweeknum].style.height = '80px';	
 				mycalen.rows[nowrow].cells[nowweeknum].style.width = '80px';
 				mycalen.rows[nowrow].cells[nowweeknum].style.border = '1px solid grey';		
@@ -625,6 +644,20 @@
 			db.collection("news").doc(d.toString().split(' GMT')[0]).set({
 			    title: document.getElementById('newstitle').value,
 			    body: textareatodiv(document.getElementById('newsbody').value)
+			})
+			.then(function() {
+			    console.log("Document successfully written!");
+			    alert('Done')
+			})
+			.catch(function(error) {
+			    console.error("Error writing document: ", error);
+			});
+		}
+
+		function addmeeting(x){
+			db.collection("meeting").doc(x.innerHTML+'|'+document.getElementById('monthchoose').value+'|'+document.getElementById('yearchoose').value).set({
+			    title: document.getElementById('meetingtitle').value,
+			    body: textareatodiv(document.getElementById('meetingbody').value)
 			})
 			.then(function() {
 			    console.log("Document successfully written!");

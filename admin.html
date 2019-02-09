@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>NASU</title>
+	<link href="https://fonts.googleapis.com/css?family=Indie+Flower|Noto+Sans+TC" rel="stylesheet">
+	<style type="text/css">
+		body{
+			background-color: #DDDDDD;
+			/*font-family: 'Indie Flower', cursive;*/
+			font-family: 'Noto Sans TC', sans-serif;
+		}
+
+		.mybox{
+			/*border: 2px solid #333333;*/
+			/*box-shadow: 5px 5px black;*/
+			background-color: #f9f9f9;
+			box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+			padding: 20px;
+			border-top: 5px solid  #b00020;
+			/*border: 5px solid  #b00020;*/
+			/*border-radius: 5px;*/
+		}
+
+		.mybox2{
+			/*background-color: #f9f9f9;*/
+			background-color: #b00020;
+			box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+			padding: 20px;
+			/*border-top: 5px solid  #b00020;*/
+		}
+
+		ul {
+		  list-style-type: none;
+		  margin: 0;
+		  padding: 0;
+		  overflow: hidden;
+		  /*background-color: #333;*/
+		  background-color: #f9f9f9;
+		  font-size: 15px;
+		  padding-left: 1%;
+		  /*opacity: 1;*/
+		  /*box-shadow: 0px 0px 0 10px #333;*/
+		  /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+		}
+
+		li {
+		  float: left;
+		  border-bottom: 5px solid grey;
+		}
+
+		li a, .dropbtn {
+		  display: inline-block;
+		  color: black;
+		  text-align: center;
+		  padding: 14px 16px;
+		  text-decoration: none;
+		}
+
+		li a:hover, .dropdown:hover .dropbtn {
+		  background-color: #b00020;
+		  color: white;
+		  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		}
+
+		li.dropdown {
+		  display: inline-block;
+		}
+
+		.dropdown-content {
+		  display: none;
+		  position: absolute;
+		  background-color: #f9f9f9;
+		  min-width: 160px;
+		  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		  z-index: 1;
+		}
+
+		.dropdown-content a {
+		  color: black;
+		  padding: 12px 16px;
+		  text-decoration: none;
+		  display: block;
+		  text-align: left;
+		}
+
+		.dropdown-content a:hover {background-color: #b00020}
+
+		.dropdown:hover .dropdown-content {
+		  display: block;
+		}
+
+		.selected{
+			border-bottom: 5px solid #b00020;
+		}
+
+		#regulationlist>a{
+			display: block;
+			/*width: 100%;*/
+			
+			margin: 5px;
+			padding-left: 10%;
+			color: black;
+		}
+
+		#regulationlist>a:hover{
+			border-left: 3px solid red;
+			background-color: #FFEEEE;
+		}
+
+		#regulationlist>a:visited{
+			color: black;
+		}
+
+		#regulationlist{
+			margin-bottom: 20px;
+		}
+
+		.monthchoose{
+			border: none;  
+			outline: none; 
+			background: none; 
+			border-radius: 0px; 
+			-webkit-appearance: none;
+			padding: 10px;
+			font-size: 45px;
+			text-align: center;
+			padding-left: 20px;
+			font-weight: bold;
+			/*width: 150px;*/
+			color: #AA0000;
+			/*text-shadow: 2px 2px grey;*/
+			text-align: center;
+  			text-align-last: center;
+		}
+
+		.monthchoose:hover{
+			/*border: 1px solid #b00020;*/
+			/*border-bottom: 1px solid black; */
+			background-color: #FFEEEE;
+
+		}
+
+
+		.yearchoose{
+			border: none; 
+			/*border-bottom: 1px solid black; */
+			outline: none; 
+			background: none;
+			padding: 10px;
+			font-size: 16px;
+			width: 50px;
+			font-weight: bold;
+			color: #AA0000;
+			text-align: center;
+		}
+
+		.yearchoose:hover{
+			/*border-bottom: 1px solid black; */
+			/*background: grey;*/
+			background-color: #FFEEEE;
+		}
+
+		.calenbutton{
+			 color: #b00020;
+			 font-size: 20px;
+			 font-weight: bold;
+			 padding: 10px;
+			 padding-top: 2px;
+			 padding-bottom: 2px;
+			 -webkit-touch-callout: none; /* iOS Safari */
+		    -webkit-user-select: none; /* Safari */
+		     -khtml-user-select: none; /* Konqueror HTML */
+		       -moz-user-select: none; /* Firefox */
+		        -ms-user-select: none; /* Internet Explorer/Edge */
+		            user-select: none; /* Non-prefixed version, currently
+		                                  supported by Chrome and Opera */
+		}
+
+		.calenbutton:hover{
+			font-size: 30px;
+			background-color: #FFEEEE;
+		}
+
+		.todaybutton{
+			/*border: none;*/
+			border: 3px solid #b00020; 
+			border-radius: 0; 
+			font-size: 16px; 
+			outline: none;
+			padding: 6px;
+			border-top: none;
+			background: none;
+		}
+
+		.todaybutton:hover{
+			background-color: #FFEEEE;
+		}
+
+		.newshead{
+			width: 60%;
+			margin-left: 20%;
+			/*border: 1px solid black;*/
+			background-color: #444444;
+			border: 3px solid #444444;
+			border-bottom: 5px solid #b00020;
+			color: white;
+			padding: 10px;
+			text-align: center;
+			margin-top: 20px;
+			overflow: hidden;
+		}
+
+		.newsbox{
+			width: 60%;
+			margin-left: 20%;
+			border: 3px solid #b00020;
+			border-top: none;
+			padding: 10px;
+			margin-bottom: 50px;
+		}
+
+		.newsbody{
+			width: 100%;
+			height: 100%;
+			border: none;
+			background: none;
+			outline: none;
+			font-family: 'Noto Sans TC', sans-serif;
+			font-size: 16px;
+			resize: none;
+		}
+
+		.newstitle{
+			width: 105%;
+			height: 100%;
+			height: 20px;
+			border: none;
+			background: none;
+			color: white;
+			outline: none;
+			font-family: 'Noto Sans TC', sans-serif;
+			font-size: 16px;
+			resize: none;
+		}
+
+		.newsadd{
+			width: 60%;
+			margin-left: 20%;
+			/*border: 1px solid black;*/
+			background: #444444;
+			/*background-color: #b00020;*/
+			border: 3px solid #b00020;
+			border-color: #444444;
+			/*border-bottom: 5px solid #b00020;*/
+			color: white;
+			/*color: black;*/
+			padding: 10px;
+			text-align: center;
+			margin-top: 20px;
+			overflow: hidden;
+		}
+
+		.newsadd:hover{
+			background-color: #b00020;
+			border-color: #b00020;
+		}
+
+	</style>
+
+	<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+	<script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyBbtwZy_kTa-Y4zoJj9IFwebgcq_jhBCdw",
+	    authDomain: "nasu-f9a8f.firebaseapp.com",
+	    databaseURL: "https://nasu-f9a8f.firebaseio.com",
+	    projectId: "nasu-f9a8f",
+	    storageBucket: "nasu-f9a8f.appspot.com",
+	    messagingSenderId: "461984999827"
+	  };
+	  firebase.initializeApp(config);
+	   var db = firebase.firestore();
+
+        // Disable deprecated features
+        db.settings({
+          timestampsInSnapshots: true
+        });
+	</script>
+</head>
+<body>
+	<!-- style="width: 100%; height: 450px; overflow: hidden;" -->
+	<div style="box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2); opacity: 0.98;" >
+
+
+		<img src="header2.png" width="100%" style="background: #333333; padding-bottom: 10px;">
+		<!-- <img style="position: absolute; width: 10%; left: 5%; top: 5%;" src="logobw.png"  /> -->
+
+		<ul id="topbarlist">
+		  <li hidden class="selected"><a href="#about">About Us</a></li>
+		  <li><a href="#news">News and Notice</a></li>
+		  <li hidden><a href="#regulations">Constitutions and Regulations</a></li>
+		  <li><a href="#meetings">Meetings</a></li>
+		  <li hidden><a href="#regsoc">Society Members Annual Registration</a></li>
+		  <li hidden><a href="#archive">Union Archive</a></li>
+		  <li hidden><a href="#contactus">Contact Us</a></li>
+		  <!-- <li class="dropdown">
+		    <a href="javascript:void(0)" class="dropbtn">Counsil Archives</a>
+		    <div class="dropdown-content">
+		      <a href="#">Link 1</a>
+		      <a href="#">Link 2</a>
+		      <a href="#">Link 3</a>
+		    </div>
+		  </li> -->
+		</ul>
+	</div>
+	<br>
+	<div id="page_about">
+		<div class="mybox">
+			<div style="text-align: center; margin: 30px;"><img src="narc1.png" ></div>
+			<p style="margin-left: 50px; margin-right: 50px;">New Asia College Students' Union (NASU) established in 1963, is the highest autonomous organisation of more than 3,300 students of the New Asia College, The Chinese University of Hong Kong. This year, the Union is in its 56th session. The General Polling and the General Meeting are of the highest authority of the Union.</p>
+			<p style="margin-left: 50px; margin-right: 50px;">The Union Council is the highest standing authority within the Union, representing all members of the Union, which afford a recognised means of communication between students and college/university authorities. Council members and ALL Full Members of the Union are able to discuss College/University and social issues in the meetings of the Council and its Committees. The functions of the Council can be summarised as follows:</p>
+
+			<p>
+				<table style="margin-left: 20px;margin-left: 100px; margin-right: 100px;">
+					<tr><td>&middot;</td><td>Supervise the Executive Committee, Hall Associations, Society Members and all sub-organisations</td></tr>
+					<tr><td>&middot;</td><td>Formulate policies and Legislate in the Union and monitor its finances</td></tr>
+					<tr><td>&middot;</td><td>Appoint student representatives</td></tr>
+					<tr><td>&middot;</td><td>Review Constitution, By-laws and regulations of the Union</td></tr>
+					<tr><td>&middot;</td><td>Review Constitution and all other regulations of the Union</td></tr>
+					<tr><td>&middot;</td><td>Council members and Full Members of the Union are able to discuss University and social issues in Council Meetings and Committee Meetings.</td></tr>
+
+				</table><br>
+
+			<p style="margin-left: 50px; margin-right: 50px;">The Judicial Committee is the independent judiciary of the Union. It is entirely independent from the Union Council and Union Executives. It hears all disputes within the Union and has constitutional duty to defend the Union Constitution and the rights of the Union Members.</p>
+
+			<p style="margin-left: 50px; margin-right: 50px;">An Executive Committee, elected in the way of Annual Election (General Polling), acts as the execution body for NASU.</p>
+
+
+
+			<br><br><br><br>
+			</p>
+		</div>
+		<!-- <br><br> -->
+		<div class="mybox2" style="">
+			<!-- <div id="mytree" class="tree">
+				
+			</div> -->
+			<!-- <div style="background: white;overflow: hidden; height: 600px;"><iframe src="tree.html" style="width: 100%; height: 700px; border: none; overflow: hidden;"></iframe></div> -->
+			
+		</div>
+
+		<br><br><br><br><br>
+	</div>
+
+	<div hidden id="page_news">
+		<div class="mybox">
+			<!-- <div class="newshead">【新亞代表會】任前會議選舉結果公告合集</div>
+			<div class="newsbox">
+
+			</div> -->
+			
+			<div class="newshead">
+				<textarea id="newstitle" class="newstitle" style="color: white;"></textarea>
+			</div>
+			<div class="newsbox">
+				<textarea id="newsbody" class="newsbody"></textarea>
+			</div>
+			<div onclick="addnews()" class="newsadd">Add News</div>
+
+			<br><br>
+
+
+
+
+		</div>
+		<br><br><br><br><br>
+	</div>
+	<div hidden id="page_regulations">
+		<div class="mybox">
+			<!-- <iframe width="100%" height="600px;" src="https://docs.google.com/document/d/e/2PACX-1vRb9W8PyPOJY16Ghv8V0hF7vCfsC_LC6KZ9s5t5z52OoYjfkyZL0HRUdeQ_zaB38mkAxOBv4JXNYWdt/pub?embedded=true"></iframe> -->
+			<div style="margin: 5px; margin-left: 10%; border-bottom: 2px solid grey; width: 60%; font-size: 25px; font-weight: bold; margin-bottom: 20px; padding-bottom: 10px;">Constitutions and Regulations List</div>
+			<div id="regulationlist">
+				<a href="https://drive.google.com/open?id=0B134yAShyaETamdpY0pTUWU3blE" target="_blank">新亞書院學生會會章</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETaG9XbnBhZUhmc2c" target="_blank">Cap 2 會章詮釋附則</a>
+				<a href="https://drive.google.com/open?id=1bcEJTFn1M1cP1zwKwz8aVphnkEYOP6Hx" target="_blank">Cap 3 會議規則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETS0taSVFkbFFhS2M" target="_blank">Cap 4 任前會議規則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETaV9rZDhBZ2lLRUk" target="_blank">Cap 5 章則委員會附則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETajVTbFNwWEJCcGc" target="_blank">Cap 6 觀察委員會附則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETUzFJWjk3dVVSN0k" target="_blank">Cap 7 財務委員會附則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETMXdDcW1yc21NUWM" target="_blank">Cap 8 選舉委員會附則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETcF83WHV3SnFobGc" target="_blank">Cap 9 團體會員委員會附則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETaXp1am41TkpPWDA" target="_blank">Cap 10（已失效）中大代表會新亞代表附則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETNWE3YTFaaDFVWDg" target="_blank">Cap 11 香港中文大學教務會新亞書院學生委員章程</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETdU51VnhjZ19XWUk" target="_blank">Cap 12 團體會員註冊章則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETZGUyNGhya2I4QjA" target="_blank">Cap 13 大型活動籌委會附則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETbk1TVmYtMUlPbUE" target="_blank">Cap 14 宣傳守則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETU0V2VTZrYXJySlE" target="_blank">Cap 15 總務守則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETRG80b1plRDlxMnM" target="_blank">Cap 16 臨時檔案管理守則</a>
+				<a href="https://drive.google.com/open?id=0B134yAShyaETamRTNW5VbUpxdHM" target="_blank">Cap 17 新亞書院院務委員會屬下委員會附則</a>
+				<a href="https://drive.google.com/open?id=1keUJd-THG41Z6ltVO4gYHfnabQeBk8id" target="_blank">Cap 18 走讀生舍堂附則</a>
+				<a href="https://drive.google.com/open?id=1_-PIStNHxTtDZKQpoPZoXtitzNOUuvWc" target="_blank">Cap 19 香港中文大學學生會代表會代表團條例</a>
+
+			</div>
+		</div>
+		<br><br><br><br><br>
+	</div>
+	<div hidden id="page_meetings">
+		<div class="mybox">
+			<div id="myyearmonth" style="padding-bottom: 10px; text-align: center;  width: 70%; margin-left: 14%; ">
+				
+				<div onclick="calennext()" style="float: right;" class="calenbutton">></div>
+				<div style="float: left;" class="calenbutton" onclick="calenback()"><</div>
+				<div style="float: center;" >
+					<select onchange="changecalen()" id="monthchoose" class="monthchoose" style=""></select>
+					<input onchange="changecalen()" id="yearchoose" class="yearchoose" type="text" name="" style="">
+
+				</div>
+				
+			</div>
+
+			<div id="mycalen">
+				<table id="mycalentable" style='margin-left: 14%; width: 70%; text-align: center; border-collapse: collapse; border: 3px solid #b00020; padding: 4px;'>
+					<tr style="border-bottom: 3px solid #b00020; background-color: #b00020; color: white;"><td>Sun</td><td>Mon</td><td>Tue</td><td>Wed</td><td>Thu</td><td>Fri</td><td>Sat</td></tr>
+					<tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+					<tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+					<tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+					<tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+					<tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+					<tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+				</table>
+				<div style="padding-bottom: 10px; text-align: center;  width: 70%; margin-left: 14%; ">
+					<div style="float: right;"><button onclick="initcalen()" class="todaybutton">Today</button></div>
+				</div>
+				<div></div>
+				<br><br>
+
+			</div>
+		</div>
+		<br><br><br><br><br>
+	</div>
+	<div hidden id="page_regsoc">
+		<div class="mybox">
+			
+		</div>
+		<br><br><br><br><br>
+	</div>
+	<div hidden id="page_archive">
+		<div class="mybox">
+			
+		</div>
+		<br><br><br><br><br>
+	</div>
+	<div hidden id="page_contactus">
+		<div class="mybox">
+			<div style="width: 100%"><iframe width="100%" height="600" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;coord=22.420971477672968,114.20918405056001&amp;q=The%20Chinese%20University%20of%20Hong%20Kong%20Staff%20Student%20Centre%20-%20Leung%20Hung%20Kee%20Building+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=18&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/map-my-route/">Create route map</a></iframe></div><br />
+			<table style="padding-left: 10px;"><tr><td style="padding-right: 20px;">Address: </td><td> G04, 2/F, Leung Hung Kee Building, New Asia Cir, Ma Liu Shui, Sha Tin, N.T, CUHK, N.T, Hong Kong</td></tr>
+			<tr><td>Contact: </td><td> 26036016</td></tr>
+			<tr><td>Email: </td><td> <a href = "mailto: abc@narep@cuhk.edu.hk">narep@cuhk.edu.hk</a></td></tr>
+			</table>
+			<br>
+
+		</div>
+		<br><br><br><br><br>
+	</div>
+
+
+
+	<script type="text/javascript">
+		var mytopbarlist = document.getElementById("topbarlist").getElementsByTagName("a");
+		var mytree = document.getElementById("mytree");
+		var mycalen = document.getElementById("mycalentable");
+		var myregulationlist = document.getElementById("regulationlist").getElementsByTagName('a');
+
+		var mytreedata = {};
+		mytreedata['Halls'] = [
+												"Chih Hsing Hall Residents' Association",
+												"Daisy Li Hall Residents' Association",
+												"Grace Tien Hall Residents' Association"];
+
+		mytreedata['Non-Residential Hall'] = [	"Xuesi Hall Residents' Association"];
+
+		mytreedata['Departmental Societies'] = [
+												'Anthropology Student Society, NASU',
+												'Chinese Society, NASU',
+												'Chemistry Society, NASU',
+												'Economics Society, NASU',
+												'English Society, NASU',
+												'Fine Arts Departmental Club, NASU',
+												'History Society, NASU',
+												'Nursing Society, NASU',
+												'Social Work Society, NASU',
+												'Statistic Society, NASU',
+												'Mathematics Society, NASU'];
+		mytreedata['Societies and Clubs'] = [
+												'AstronomySociety, NASU',
+												'Band Society, NASU',
+												'Bookcrossing Society, NASU',
+												'Chinese Music Society, NASU',
+												'Drama Club, NASU',
+												'Mainland Undergraduate Association, NASU',
+												'Martial Arts Society, NASU',
+												'Rotaract Club, NASU',
+												'Speech and Debate Society, NASU',
+												'10.Students Social Service Group, NASU'];
+
+
+
+
+		function makesocietytree(){
+			var temptreeoutput = '';
+			temptreeoutput+='<ul>';
+			for (var j in mytreedata){
+				temptreeoutput+='<li>';
+				temptreeoutput+='<a href="">'+j+'</a>';
+				temptreeoutput+='<ul>';
+				for (var k=0; k<mytreedata[j].length; k++){
+					temptreeoutput+='<li>';
+					temptreeoutput+='<a href="">'+mytreedata[j][k]+'</a>';
+					temptreeoutput+='</li>';
+				}
+				temptreeoutput+='</ul>';
+				temptreeoutput+='</li>';
+				
+			}
+			temptreeoutput+='</ul>';
+			mytree.innerHTML = temptreeoutput;
+		}
+
+		function startpage(){
+			for (var j=0; j<mytopbarlist.length; j++){
+				mytopbarlist[j].onclick = function(){
+					// alert(this.href.split('#')[1]);
+					for (var k=0; k<mytopbarlist.length; k++){
+						document.getElementById('page_'+mytopbarlist[k].href.split('#')[1]).hidden = true;
+						mytopbarlist[k].parentNode.classList.remove('selected');
+					}
+					document.getElementById('page_'+this.href.split('#')[1]).hidden = false;
+					this.parentNode.classList.add('selected');
+				};
+			}
+			// console.log(location.href);
+			// mytopbarlist[0].click();
+			if (location.href.split("#")[1]){
+				for (var k=0; k<mytopbarlist.length; k++){
+					if (mytopbarlist[k].href.split('#')[1]==location.href.split("#")[1]){
+						mytopbarlist[k].click();
+					}
+				}
+			} else {
+				mytopbarlist[1].click();
+			}
+
+			initcalen();
+			
+			autosize(document.getElementsByClassName("newsbody")[0]);
+			
+		}
+
+		startpage();
+		
+		function clearcalen(){
+			for (var j=1; j<mycalen.rows.length; j++){
+				for (var k=0; k<mycalen.rows[j].cells.length; k++){
+					mycalen.rows[j].cells[k].innerHTML = '';
+					mycalen.rows[j].cells[k].style.border = 'none';
+					mycalen.rows[j].cells[k].style.height = '0px';
+					mycalen.rows[j].cells[k].style.width = '0px';
+				}
+			}
+		}
+
+		function initcalen(d){
+			clearcalen();
+			if (!d)
+				d = new Date();
+			var startday = new Date(d.getYear(),d.getMonth(),1);
+			var endday = new Date(new Date(d.getYear(),d.getMonth()-0+1,1)-1);
+			var nowweeknum = startday.getDay();
+			var nowrow = 1;
+			for (var j=startday.getDate(); j<=endday.getDate(); j++){
+				mycalen.rows[nowrow].cells[nowweeknum].innerHTML = '<div>'+j+'</div>';
+				mycalen.rows[nowrow].cells[nowweeknum].style.height = '80px';	
+				mycalen.rows[nowrow].cells[nowweeknum].style.width = '80px';
+				mycalen.rows[nowrow].cells[nowweeknum].style.border = '1px solid grey';		
+				nowweeknum++;
+				if (nowweeknum==7){
+					nowweeknum=0;
+					nowrow++;
+				}
+			}
+			var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+			var tempmonthchoose = '';
+			for (var j=0; j<12; j++){
+				tempmonthchoose += '<option value="'+j+'">'+months[j]+'</option>';
+			}
+			document.getElementById("monthchoose").innerHTML = tempmonthchoose;
+			document.getElementById("monthchoose")[d.getMonth()].selected = true;
+			document.getElementById("yearchoose").value = d.getFullYear();
+		}
+
+		function changecalen(){
+			var d = new Date(document.getElementById('yearchoose').value,document.getElementById('monthchoose').value,1);
+			initcalen(d);
+		}
+
+		function calenback() {
+			var d = new Date(document.getElementById('yearchoose').value,document.getElementById('monthchoose').value-1,1);
+			initcalen(d);
+		}
+
+		function calennext() {
+			var d = new Date(document.getElementById('yearchoose').value,document.getElementById('monthchoose').value-0+1,1);
+			initcalen(d);
+		}
+
+		function textareatodiv(x){
+			return x.split(' ').join('&nbsp;').split('\n').join('<br>');
+		}
+
+
+		function addnews(){
+			var d = new Date();
+			db.collection("news").doc(d.toString().split(' GMT')[0]).set({
+			    title: document.getElementById('newstitle').value,
+			    body: textareatodiv(document.getElementById('newsbody').value)
+			})
+			.then(function() {
+			    console.log("Document successfully written!");
+			    alert('Done')
+			})
+			.catch(function(error) {
+			    console.error("Error writing document: ", error);
+			});
+		}
+
+
+	</script>
+</body>
+</html>

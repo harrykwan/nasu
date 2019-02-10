@@ -17,7 +17,7 @@
 			background-color: #f9f9f9;
 			box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
 			padding: 20px;
-			border-top: 5px solid  #b00020;
+			border-top: 15px solid  #b00020;
 			/*border: 5px solid  #b00020;*/
 			/*border-radius: 5px;*/
 		}
@@ -25,11 +25,26 @@
 		.mybox2{
 			/*background-color: #f9f9f9;*/
 			background-color: #902222;
+			/*background-image: linear-gradient(#902222,#902222,#902222,#444444);*/
 			box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
 			padding: 20px;
 			/*border: 10px solid #444444*/
-			border-top: 5px solid  grey;
+			border-top: 15px solid  #444;
+			/*background-image: url("narc1.png");*/
+			/*background-repeat: no-repeat;*/
 		}
+
+		/*.mybox2::after{
+			content: "";
+			background-image: url("narc1.png");
+			opacity: 0.5;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			position: absolute;
+			z-index: -1;   
+		}*/
 
 		
 
@@ -299,11 +314,21 @@
 			padding-right: 10px;
 			display: inline-block;
 			border-radius: 100%;
+			border-color: #b00020;
 		}
 
 		.calenselected:hover{
 			/*background-color: red;*/
 			/*color: white;*/
+		}
+
+		.calentoday{
+			background-color: #b00020;
+			color: white;
+		}
+
+		.calentoday>div{
+			border-color: #eee;
 		}
 
 	</style>
@@ -356,7 +381,9 @@
 	<br>
 	<div id="page_about">
 		<div class="mybox">
-			<div style="text-align: center; margin: 30px;"><img src="narc1.png" ></div>
+			<div style="text-align: center; margin: 30px;">
+				<img src="narc1.png" >
+			</div>
 			<p style="margin-left: 50px; margin-right: 50px;">New Asia College Students' Union (NASU) established in 1963, is the highest autonomous organisation of more than 3,300 students of the New Asia College, The Chinese University of Hong Kong. This year, the Union is in its 56th session. The General Polling and the General Meeting are of the highest authority of the Union.</p>
 			<p style="margin-left: 50px; margin-right: 50px;">The Union Council is the highest standing authority within the Union, representing all members of the Union, which afford a recognised means of communication between students and college/university authorities. Council members and ALL Full Members of the Union are able to discuss College/University and social issues in the meetings of the Council and its Committees. The functions of the Council can be summarised as follows:</p>
 
@@ -445,9 +472,11 @@
 			<br>
 		</div>
 		<!-- <br><br> -->
-		<div class="mybox" style="border-color: grey;">
+		<div class="mybox" style="border-color: #444;">
 			<br>
-			<div id="societylist" style="margin-left: 1%;"></div>
+			<div style="text-align: center;">
+				<div id="societylist" style="display: inline-block; text-align: left;"></div>
+			</div>
 			<br>
 			<br><br>
 		</div>
@@ -692,6 +721,7 @@
 		function clearcalen(){
 			for (var j=1; j<mycalen.rows.length; j++){
 				for (var k=0; k<mycalen.rows[j].cells.length; k++){
+					mycalen.rows[j].cells[k].classList.remove('calentoday');
 					mycalen.rows[j].cells[k].innerHTML = '';
 					mycalen.rows[j].cells[k].style.border = 'none';
 					mycalen.rows[j].cells[k].style.height = '0px';
@@ -717,6 +747,8 @@
 
 		function initcalen(d){
 			clearcalen();
+			var today = new Date();
+			var todayid = today.getDate()+'|'+today.getMonth()+'|'+today.getFullYear();
 			if (!d)
 				d = new Date();
 			var startday = new Date(d.getFullYear(),d.getMonth(),1);
@@ -733,7 +765,10 @@
 					mycalen.rows[nowrow].cells[nowweeknum].innerHTML = '<div>'+j+'</div>';
 				mycalen.rows[nowrow].cells[nowweeknum].style.height = '80px';	
 				mycalen.rows[nowrow].cells[nowweeknum].style.width = '80px';
-				mycalen.rows[nowrow].cells[nowweeknum].style.border = '1px solid grey';		
+				mycalen.rows[nowrow].cells[nowweeknum].style.border = '1px solid grey';
+				if (todayid == tempid){
+					mycalen.rows[nowrow].cells[nowweeknum].classList.add('calentoday');
+				}
 				nowweeknum++;
 				if (nowweeknum==7){
 					nowweeknum=0;
@@ -838,6 +873,7 @@
 			document.getElementById("meetingbody").innerHTML = mymeetingdata[tempid].body;
 			document.getElementById("showmeeting").hidden = false;
 		}
+
 
 
 	</script>

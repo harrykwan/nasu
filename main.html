@@ -119,6 +119,16 @@
 			margin-bottom: 20px;
 		}
 
+		.societydiv{
+			padding: 2px;
+		}
+
+		.societydiv:hover{
+			/*border-left: 3px solid red;*/
+			background-color: #b00020;
+			color: white;
+		}
+
 		.monthchoose{
 			border: none;  
 			outline: none; 
@@ -277,6 +287,9 @@
 
 		.boxactive, .mybox3:hover{
 			background: #FDD;
+			background-color: #b00020;
+			color: white;
+			border: 1px solid white;
 		}
 
 		.calenselected{
@@ -432,7 +445,12 @@
 			<br>
 		</div>
 		<!-- <br><br> -->
-		<div class="mybox" style="border-color: grey;"></div>
+		<div class="mybox" style="border-color: grey;">
+			<br>
+			<div id="societylist" style="margin-left: 1%;"></div>
+			<br>
+			<br><br>
+		</div>
 		<br><br><br><br><br>
 	</div>
 
@@ -520,7 +538,7 @@
 
 		</div>
 
-		<div hidden class="mybox" style="border: 20px solid #b00020;" id="showmeeting">
+		<div hidden class="mybox" style="border: 20px solid #b00020; background-color: #efefef;" id="showmeeting">
 			<div id="meetingtitle" class="meetinghead">
 				</div>
 				<div id="meetingbody" class="meetingbox">
@@ -593,7 +611,7 @@
 												'Martial Arts Society, NASU',
 												'Rotaract Club, NASU',
 												'Speech and Debate Society, NASU',
-												'10.Students Social Service Group, NASU'];
+												'Students Social Service Group, NASU'];
 
 
 
@@ -645,6 +663,7 @@
 
 			
 			initcalen();
+			initsociety();
 			autosize(document.getElementsByClassName("newsbody")[0]);
 
 			db.collection("news").get().then(function(querySnapshot) {
@@ -679,6 +698,21 @@
 					mycalen.rows[j].cells[k].style.width = '0px';
 				}
 			}
+		}
+
+		function initsociety(){
+			var tempoutput = '<table style=""><tr>';
+			for (j in mytreedata){
+				tempoutput+='<td style="font-weight: bold; font-size: 16px; border-right:20px solid #f9f9f9; border-left:20px solid #f9f9f9; text-align:center; border-bottom: 3px solid black; padding-left: 10px;">'+j+'</td>'
+			}
+			tempoutput += '</tr>';
+			tempoutput += '<tr style="background-color: #efefef;">';
+			for (j in mytreedata){
+				tempoutput+='<td style="padding-left: 10px;" valign="top"><div class="societydiv">'+mytreedata[j].join('</div><div class="societydiv">')+'</div></td>'
+			}
+			tempoutput += '</tr>';
+			tempoutput += '</table>';
+			document.getElementById("societylist").innerHTML=tempoutput;
 		}
 
 		function initcalen(d){

@@ -32,6 +32,7 @@
 			border-top: 15px solid  #444;
 			/*background-image: url("narc1.png");*/
 			/*background-repeat: no-repeat;*/
+
 		}
 
 		/*.mybox2::after{
@@ -136,6 +137,8 @@
 
 		.societydiv{
 			padding: 2px;
+			z-index: 5;
+			position: relative;
 		}
 
 		.societydiv:hover{
@@ -293,11 +296,16 @@
 		.mybox3{
 			font-size: 13px;
 			color: #b00020;
-			background: white;
 			padding: 10px;
 			display: inline-block;
 			font-weight: bold;
-			background-color: #EEEEEE;
+			background-color: #EDEDED;
+			box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+			border-radius: 5px;
+			background-image: url('asia_dragon.jpg');
+			z-index: 5;
+			position: relative;
+			opacity: 0.98;
 		}
 
 		.boxactive, .mybox3:hover{
@@ -408,7 +416,9 @@
 			</p>
 		</div>
 		<!-- <br><br> -->
-		<div class="mybox2" style="">
+	<div style="width: 100%;">
+		<div style="position: relative; top: 0px; left: 0px; opacity: 0.1; height: 0px;"><img style="width: 100%;" src="asia_dragon.jpg"></div>
+		<div class="mybox2" style=" ">
 			<br>
 			<!-- <div id="mytree" class="tree">
 			</div> -->
@@ -471,6 +481,7 @@
 			</div>
 			<br>
 		</div>
+	</div>
 		<!-- <br><br> -->
 		<div class="mybox" style="border-color: #444;">
 			<br>

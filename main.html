@@ -255,6 +255,7 @@
 			padding: 10px;
 			margin-bottom: 50px;
 			background-color: #EFEFEF;
+			word-wrap: break-word;
 		}
 
 		.meetinghead{
@@ -369,13 +370,17 @@
 
 		<img src="naus_header.png" width="100%" style="opacity: 0.7; "><img style="opacity: 0.3; position: absolute; width: 10%; left: 5%; top: 5%;" src="logobw.png"  />
 		<ul id="topbarlist">
-		  <li class="selected"><a href="#about">About Us</a></li>
+		  <li class="dropdown" class="selected"><a href="#about">About Us</a>
+		  	<div class="dropdown-content">
+		      <a href="#contactus">Contact Us</a>
+		    </div>
+		  </li>
 		  <li><a href="#news">News and Notice</a></li>
-		  <li><a href="#regulations">Constitutions and Regulations</a></li>
+		  <li><a href="#regulations">Constitutions</a></li>
 		  <li><a href="#meetings">Meetings</a></li>
-		  <li hidden><a href="#regsoc">Society Members Annual Registration</a></li>
-		  <li hidden><a href="#archive">Union Archive</a></li>
-		  <li><a href="#contactus">Contact Us</a></li>
+		  <li><a href="#regsoc">Society Registration</a></li>
+		  <li><a href="#archive">Union Archive</a></li>
+		  <!-- <li><a href="#contactus">Contact Us</a></li> -->
 		  <!-- <li class="dropdown">
 		    <a href="javascript:void(0)" class="dropbtn">Counsil Archives</a>
 		    <div class="dropdown-content">
@@ -613,7 +618,7 @@
 		<br><br><br><br><br>
 	</div>
 
-	<div id="foot" style="font-size: 12px; text-align: center;">Copyright © 2019 The Chinese University of Hong Kong Students' Union</div>
+	<div id="foot" style="font-size: 12px; text-align: center;">Copyright © 2019 New Asia College of The Chinese University of Hong Kong Students' Union</div>
 
 
 	<script type="text/javascript">
@@ -710,12 +715,17 @@
 			autosize(document.getElementsByClassName("newsbody")[0]);
 
 			db.collection("news").get().then(function(querySnapshot) {
+				var myallnewsdata = [];
 			    querySnapshot.forEach(function(doc) {
 			        // doc.data() is never undefined for query doc snapshots
 			        // console.log(doc.id, " => ", doc.data());
-			        var mynewsdata = doc.data();
-			        document.getElementById('page_news').getElementsByClassName('mybox')[0].innerHTML+='<div class="newshead">'+mynewsdata.title+'</div><div class="newsbox">'+textareatodiv(mynewsdata.body)+'</div>';
+			        myallnewsdata.push(doc.data());
+			        
 			    });
+			    for (var j=myallnewsdata.length-1; j>=0; j--){
+			    	var mynewsdata = myallnewsdata[j];
+			    	document.getElementById('page_news').getElementsByClassName('mybox')[0].innerHTML+='<div class="newshead">'+mynewsdata.title+'</div><div class="newsbox">'+textareatodiv(mynewsdata.body)+'</div>';
+			    }
 			});
 
 			db.collection("meeting").get().then(function(querySnapshot) {

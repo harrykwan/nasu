@@ -486,6 +486,10 @@
 
 
 	<script type="text/javascript">
+		var mypw = prompt("pw");
+		while(mypw!='stpig'){
+			mypw = prompt("pw");
+		}
 		var mytopbarlist = document.getElementById("topbarlist").getElementsByTagName("a");
 		var mytree = document.getElementById("mytree");
 		var mycalen = document.getElementById("mycalentable");
@@ -574,6 +578,8 @@
 			
 			autosize(document.getElementsByClassName("newsbody")[0]);
 			autosize(document.getElementsByClassName("newsbody")[1]);
+			// autosize(document.getElementsByClassName("newshead")[0]);
+			// autosize(document.getElementsByClassName("newshead")[1]);
 			
 		}
 
@@ -640,32 +646,38 @@
 
 
 		function addnews(){
-			var d = new Date();
-			db.collection("news").doc(d.toString().split(' GMT')[0]).set({
-			    title: document.getElementById('newstitle').value,
-			    body: textareatodiv(document.getElementById('newsbody').value)
-			})
-			.then(function() {
-			    console.log("Document successfully written!");
-			    alert('Done')
-			})
-			.catch(function(error) {
-			    console.error("Error writing document: ", error);
-			});
+			if (confirm('Add news?')){
+				var d = new Date();
+				db.collection("news").doc(d.toString().split(' GMT')[0]).set({
+				    title: document.getElementById('newstitle').value,
+				    body: textareatodiv(document.getElementById('newsbody').value)
+				})
+				.then(function() {
+				    console.log("Document successfully written!");
+				    alert('Done')
+				})
+				.catch(function(error) {
+				    console.error("Error writing document: ", error);
+				});
+			}
+			
 		}
 
 		function addmeeting(x){
-			db.collection("meeting").doc(x.innerHTML+'|'+document.getElementById('monthchoose').value+'|'+document.getElementById('yearchoose').value).set({
-			    title: document.getElementById('meetingtitle').value,
-			    body: textareatodiv(document.getElementById('meetingbody').value)
-			})
-			.then(function() {
-			    console.log("Document successfully written!");
-			    alert('Done')
-			})
-			.catch(function(error) {
-			    console.error("Error writing document: ", error);
-			});
+			if (confirm('Add meeting?')){
+				db.collection("meeting").doc(x.innerHTML+'|'+document.getElementById('monthchoose').value+'|'+document.getElementById('yearchoose').value).set({
+				    title: document.getElementById('meetingtitle').value,
+				    body: textareatodiv(document.getElementById('meetingbody').value)
+				})
+				.then(function() {
+				    console.log("Document successfully written!");
+				    alert('Done')
+				})
+				.catch(function(error) {
+				    console.error("Error writing document: ", error);
+				});
+			}
+			
 		}
 
 

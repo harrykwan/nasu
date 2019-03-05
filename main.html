@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="UTF-8">
 	<title>NASU</title>
 	<link href="https://fonts.googleapis.com/css?family=Indie+Flower|Noto+Sans+TC" rel="stylesheet">
 	<style type="text/css">
@@ -311,7 +312,12 @@
 			opacity: 0.98;
 		}
 
-		.boxactive, .mybox3:hover{
+		.mybox3>a{
+			color: #b00020;
+			background-color: #EDEDED;
+		}
+
+		.boxactive, .boxactive>a, .mybox3:hover{
 			background: #FDD;
 			background-color: #b00020;
 			color: white;
@@ -441,7 +447,7 @@
 			<div style="border-right: 1px solid white; border-left: 1px solid white; height: 30px; width: 50%;margin-left: 25%;"></div>
 			<!-- <div class="mybox3">NASU</div><div class="mybox3">NASU</div> -->
 			<div style="text-align: center;">
-				<div class="mybox3" style="">Union Council</div>
+				<div class="mybox3" style=""><a href="https://www.facebook.com/council.nasu" target="_blank">Union Council</a></div>
 				<div style="width: calc(50% - 150px); display: inline-block;"></div>
 				<div class="mybox3" style="">Judicial Committee</div>
 			</div>
@@ -455,7 +461,7 @@
 			<div style=" border-left: 1px solid white; height: 30px; width: 0px;margin-left: 20%;display: inline-block;"></div>
 			<div style="text-align: center;">
 				<div style="width: calc(2% - 0px); display: inline-block;"></div>
-				<div class="mybox3" style="font-size: 12px;"><br>EXCO<br><br></div>
+				<div class="mybox3" style="font-size: 12px;"><br><a href="https://www.facebook.com/nasu.cuhk" target="_blank">EXCO</a><br><br></div>
 				<div style="width: calc(20% - 100px); display: inline-block;"></div>
 				<div class="mybox3" style="font-size: 12px;"><br>Hall Associations<br><br></div>
 				<div style="width: calc(20% - 120px); display: inline-block;"></div>
@@ -463,7 +469,7 @@
 				<div style="width: calc(20% - 130px); display: inline-block;"></div>
 				<div class="mybox3" style="font-size: 12px;"><br>Student Representative<br><br></div>
 				<div style="width: calc(20% - 140px); display: inline-block;"></div>
-				<div class="mybox3" style="font-size: 12px;">Members (NASU)<br>of the CUSU<br>Council</div>
+				<div class="mybox3" style="font-size: 12px;"><a target="_blank" href="http://council.cusu.hk/wp/">Members (NASU)<br>of the CUSU<br>Council</a></div>
 			</div>
 			<div style=" border-left: 1px solid white; height: 30px; width: 0px;margin-left: 10%; display: inline-block;"></div>
 			<div style=" border-left: 1px solid none; height: 30px; width: 0px;margin-left: calc(18% - 0px);display: inline-block;"></div>
@@ -483,7 +489,7 @@
 				<div style="display: inline-block; text-align: left; width: 100px;">
 					<div class="mybox3" style="font-size: 12px; text-align: left;">CUSU</div>
 					<br><div style=" border-left: 3px dotted white; height: 30px; width: 0px;margin-left: 20%;display: inline-block;"></div><br>
-					<div class="mybox3" style="font-size: 12px; text-align: left;">Hong Kong Federation of Students</div>
+					<div class="mybox3" style="font-size: 12px; text-align: left;"><a href="https://www.hkfs.org.hk/" target="_blank">Hong Kong Federation of Students</a></div>
 				</div>
 			</div>
 			<br>
@@ -624,7 +630,6 @@
 
 
 	<script type="text/javascript">
-
 		var mytopbarlist = document.getElementById("topbarlist").getElementsByTagName("a");
 		var mytree = document.getElementById("mytree");
 		var mycalen = document.getElementById("mycalentable");

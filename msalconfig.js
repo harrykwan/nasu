@@ -1,4 +1,7 @@
 var msalconfig = {
-    clientID: "f9401160-6fed-4517-ad98-70750a735a36",
+    clientID: "4271889a-03ff-4701-86bf-e40f412c5acb",
     redirectUri: "https://harrykwan.github.io/nasu/main.html"
+}, cache: {
+    cacheLocation: "localStorage",
+    storeAuthStateInCookie: true
 };

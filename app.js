@@ -103,7 +103,7 @@ function showError(endpoint, error, errorDesc) {
         formattedError = error;
     }
     // document.getElementById("errorMessage").innerHTML = "An error has occurred:<br/>Endpoint: " + endpoint + "<br/>Error: " + formattedError + "<br/>" + errorDesc;
-    console.error(error);
+    console.log(error);
 }
 
 /**

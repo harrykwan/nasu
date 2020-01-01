@@ -288,7 +288,7 @@
         }
 
         #mainhead:hover{
-          background-color: #605d5d;
+          /* background-color: #605d5d; */
         }
 
         #mainframe{
@@ -401,6 +401,7 @@
           border-radius: 5px;
           background-color: #111111;
           background-color: #181818;
+          background-color: #330000;
         }
 
         .societybox:hover{
@@ -430,7 +431,7 @@
         }
 
         .societyinput:hover{
-          background-color: #555555;
+          background-color: #330000;
         }
 
         .choosesocietybox{
@@ -1240,7 +1241,7 @@
                     // console.log(societylistid);
                     tempoutput += '<span style="">'+societylist[j].id+'</span><div class="societylist" style="margin-bottom:10px;"  onclick="choosesociety(this)">'+societylist[j].name+'</div>';
                 }
-                tempoutput+='<div style="height: 20px;"></div></div></div><div id="choosetypebar" class="choosetypebar"><span>系會</span><span>院會</span></div>';
+                // tempoutput+='<div style="height: 20px;"></div></div></div><div id="choosetypebar" class="choosetypebar"><span>系會</span><span>院會院會</span></div>';
                 //+'<a class="downloadlink2" href="http://regsoc.cusu.hk/society" target="_blank" style="margin-left:125px;">society code reference</a>'
                 document.getElementById("mainframe").innerHTML = tempoutput;
                 var mytypebar = document.getElementById("choosetypebar").getElementsByTagName("span");

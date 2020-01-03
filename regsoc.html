@@ -373,6 +373,7 @@
           background-color: #292929;
           background-color: #232323;
           background-color: #222222;
+          background-color: #440000;
           /*color: #E6E6E6;*/
           color: #DDDDDD;
           /*color: #FFFFDD;*/
@@ -417,7 +418,7 @@
           background-color: #424242;
           background-color: #252525;
           background-color: #111111;
-          background-color: #181818;
+          background-color: #330000;
           /*background-color: #555555;*/
           color: #E6E6E6;
           border: 0px solid #E6E6E6;
@@ -432,6 +433,7 @@
 
         .societyinput:hover{
           background-color: #330000;
+          background-color: #440000;
         }
 
         .choosesocietybox{
@@ -1177,6 +1179,20 @@
                 } else {
                     // doc.data() will be undefined in this case
                     console.log("No such document!");
+                    var docRef = db.collection("societystatus").doc(x);
+                    docRef.set({
+                        filelist: '',
+                        status: 0,
+                        submitct: 0
+                    })
+                    .then(function(){
+                        nowfilelist = tempfilelist;
+                        checkstatus(x)
+                    })
+                    .catch(function(error){
+                        console.log(error);
+                    });
+
                 }
             }).catch(function(error) {
                 console.log("Error getting document:", error);

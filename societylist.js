@@ -105,4 +105,7 @@ var societylist = [{
 ,{
 	id: "NA-BAS",
 	name: "香港中文大學新亞書院工商管理學會"
+},{
+	id: "NA-TEST",
+	name: "香港中文大學新亞書院測試學會"
 }]

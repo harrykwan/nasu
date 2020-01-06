@@ -1,4 +1,4 @@
-[{id: “NA-PHY”,
+var societylist = [{id: “NA-PHY”,
 name: "香港中文大學新亞書院學生會物理系系會"}
 ,{id: “NA-HIS”,
 name: "香港中文大學新亞書院歷史學系系會"}

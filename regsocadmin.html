@@ -370,9 +370,9 @@
           var tempresult1 = myresult.values[j][1]
           var tempresult2 = myresult.values[j][2]
           var tempresult3 = myresult.values[j][3]
-          myresult[j][1].values = tempresult2
-          myresult[j][2].values = tempresult3
-          myresult[j][3].values = tempresult1
+          myresult.values[j][1] = tempresult2
+          myresult.values[j][2] = tempresult3
+          myresult.values[j][3] = tempresult1
         }
         document.getElementById("myshowsheet").innerHTML = '';
         for (var j=1; j<myresult.values.length; j++){

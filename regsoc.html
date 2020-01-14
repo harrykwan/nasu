@@ -663,7 +663,7 @@
 <!-- The 'bluebird' and 'fetch' references below are required if you need to run this application on Internet Explorer -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
-<script src="https://harrykwan.github.io/nasu/societylist.js"></script>
+<script src="societylist.js"></script>
 <script type="text/javascript" src="msalconfig.js"></script>
     <div id="googleformarea" hidden>
         <iframe id="i_frame" name="googleform"></iframe>
@@ -1048,16 +1048,16 @@
                         }
 
                         var myalldownloadlink = document.getElementsByClassName('downloadlink');
-                        myalldownloadlink[0].href = "";
-                        myalldownloadlink[1].href = "";
-                        myalldownloadlink[2].href = "";
-                        myalldownloadlink[3].href = "";
-                        myalldownloadlink[4].href = "";
-                        myalldownloadlink[5].href = "";
-                        myalldownloadlink[6].href = "";
-                        myalldownloadlink[7].href = "";
-                        myalldownloadlink[8].href = "";
-                        myalldownloadlink[9].href = "";
+                        // myalldownloadlink[0].href = "";
+                        // myalldownloadlink[1].href = "";
+                        // myalldownloadlink[2].href = "";
+                        // myalldownloadlink[3].href = "";
+                        // myalldownloadlink[4].href = "";
+                        // myalldownloadlink[5].href = "";
+                        // myalldownloadlink[6].href = "";
+                        // myalldownloadlink[7].href = "";
+                        // myalldownloadlink[8].href = "";
+                        // myalldownloadlink[9].href = "";
 
                         document.getElementById("mainframe").innerHTML +=  "<div class='filelistarea' id='filelistarea'></div>";
 
@@ -1246,21 +1246,21 @@
                 // tempoutput+='<div style="height: 20px;"></div></div></div><div id="choosetypebar" class="choosetypebar"><span>系會</span><span>院會院會</span></div>';
                 //+'<a class="downloadlink2" href="http://regsoc.cusu.hk/society" target="_blank" style="margin-left:125px;">society code reference</a>'
                 document.getElementById("mainframe").innerHTML = tempoutput;
-                var mytypebar = document.getElementById("choosetypebar").getElementsByTagName("span");
-                for (var j=0; j<mytypebar.length; j++){
-                    mytypebar[j].onclick = function(){
-                        var tempsocietylist = document.getElementsByClassName("societylist");
-                        for (var k=0; k<tempsocietylist.length; k++){
-                            if (tempsocietylist[k].innerHTML.indexOf(this.innerHTML)!=-1){
-                                tempsocietylist[k].hidden = false;
-                                tempsocietylist[k].previousSibling.hidden = false;
-                            } else {
-                                tempsocietylist[k].hidden = true;
-                                tempsocietylist[k].previousSibling.hidden = true;
-                            }
-                        }
-                    }
-                }
+                // var mytypebar = document.getElementById("choosetypebar").getElementsByTagName("span");
+                // for (var j=0; j<mytypebar.length; j++){
+                //     mytypebar[j].onclick = function(){
+                //         var tempsocietylist = document.getElementsByClassName("societylist");
+                //         for (var k=0; k<tempsocietylist.length; k++){
+                //             if (tempsocietylist[k].innerHTML.indexOf(this.innerHTML)!=-1){
+                //                 tempsocietylist[k].hidden = false;
+                //                 tempsocietylist[k].previousSibling.hidden = false;
+                //             } else {
+                //                 tempsocietylist[k].hidden = true;
+                //                 tempsocietylist[k].previousSibling.hidden = true;
+                //             }
+                //         }
+                //     }
+                // }
             }
         }
 

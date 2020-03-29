@@ -224,7 +224,7 @@
     <div id="googleformarea" hidden>
         <iframe id="i_frame" name="googleform"></iframe>
 
-        <form id="form" action="https://docs.google.com/forms/d/e/1FAIpQLSdCOpwSr3UsqSJ9ky4j7NKTFTzCmLxXzzAiQNHaKSv6YgY7Cw/formResponse" target="googleform" method="POST" onsubmit="checkdone(0)">
+        <form id="form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdIxQgcaDLphILprnbusvBM_JJZfaj9XC8gvzeru9-P-0V65Q/formResponse" target="googleform" method="POST" onsubmit="checkdone(0)">
             <input id="googleforminput1" type="text" name="entry.2045469385" value="">
             <input id="googleforminput2" type="text" name="entry.1431600269" value="">
             <input id="googleforminput3" type="text" name="entry.1528364708" value="">
@@ -724,7 +724,7 @@
 
     var changestatusdone = 0;
     function myapprove(x,y) {
-      mymessage = prompt("Disapprove reason:",getnowapprovemessage(document.getElementById(x+'div').getElementsByClassName('oldmessage')[0]));
+      mymessage = prompt("Approve reason:",getnowapprovemessage(document.getElementById(x+'div').getElementsByClassName('oldmessage')[0]));
       if (confirm('Approve '+x+' for '+mymessage+'?')){
         changestatusdone = 0;
         setmessagedone = 0;

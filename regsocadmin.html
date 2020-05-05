@@ -1124,19 +1124,19 @@
       if (!letterdate)
         letterdate = getnowdate();
 
-      if (letterman) {
-        letterman = '<br>（' + letterman + '代行）';
+      if (!letterman) {
+        letterman = '香港中文大學新亞書院學生會評議會團體會員委員會主席勞正翹評議員'
       }
 
       document.getElementById("mainframe").innerHTML +=
-        '<div id="socshit"><div style="background-color: white; color black;  overflow: hidden;"><img style="width: 100%;" src="regsocpaper.png"></div>   <br>I hereby certify that<br>本人謹此證明  <div style="background-color: white; color: black; text-align: center; padding: 20px;">        <h1 style="font-size: 18px;">' +
+        '<div id="socshit"><div style="background-color: white; color black;  overflow: hidden;"><img style="width: 100%;" src="regsocpaper.png"></div>   <div style="background-color: white; color: black; text-align: center; padding: 20px;">    <br>I hereby certify that<br>本人謹此證明      <h1 style="font-size: 18px;">' +
         x +
-        '</h1>     <br>is this day registered as a Society Member of NASU in accordance with Society Member Ordinance.<br>於本日根據《團體會員條例》在香港中文大學新亞書院學生會登記成為團體會員。<br><br><br><br>   ' +
+        '</h1>     <br>is this day registered as a Society Member of NASU in accordance with Society Member Ordinance.<br>於本日根據《團體會員條例》在香港中文大學新亞書院學生會登記成為團體會員。<br><br>  ' +
         // '     <div style="width: 700px; text-align: left; margin: 0 auto;">茲證明「' +
         // x + '」已按照《屬下團體章則》第31條之規定完成週年登記，有效期至' + diudate +
         // '止。            <br><br>            以下為上述團體在週年登記時提供的幹事資料:        </div>        <br><br><br> ' +
         x +
-        '幹事會名單為：<br><table style="border-collapse: collapse; margin: 0 auto; width: 70%;" id="memberlisttable"><tr style="height: 20px;"><td style="border: 1px solid black;">職位</td><td style="border: 1px solid black;">中文姓名</td><td style="border: 1px solid black; ">英文姓名</td><td style="border: 1px solid black;">學生編號</td></tr></table>          <br><br>  <div style="width: 700px; text-align: left; margin: 0 auto;">如有任何查詢，請以電郵 cuhkrc.acsc@gmail.com 聯絡本委員會。</div><br><br><br><br>  <div style="width: 700px; text-align: right; margin: 0 auto;">香港中文大學學生會代表會<br>屬下團體委員會主席' +
+        '<div style="width: 700px; text-align: left; margin: 0 auto;">幹事會名單為： </div><br><br><table style="border-collapse: collapse; margin: 0 auto; width: 70%;" id="memberlisttable"><tr style="height: 20px;"><td style="border: 1px solid black;">職位</td><td style="border: 1px solid black;">中文姓名</td><td style="border: 1px solid black; ">英文姓名</td><td style="border: 1px solid black;">學生編號</td></tr></table>          <br><br> <br><br><br><br>  <div style="width: 700px; text-align: right; margin: 0 auto;">Chairperson of Society Member Committee<br>The Council of New Asia College Student Union, CUHK<br>' +
         letterman + '</div><div style="width: 700px; text-align: left; margin: 0 auto;">' + letterdate +
         '</div><br><br><br><br></div></div>';
       //+chinnum[(n+'')[0]]+chinnum[(n+'')[1]]+chinnum[(n+'')[2]]+chinnum[(n+'')[3]]+'年一月三十一日

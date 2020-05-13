@@ -634,7 +634,7 @@
         }
 
         for (var j in mydata) {
-          if (mydata[j].finish) {
+          if (mydata[j].finish || mydata[j].step == undefined) {
             var option = document.createElement("option");
             option.text = j;
             document.getElementById("socpaperinput1").add(option);
